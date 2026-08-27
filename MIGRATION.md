@@ -3,6 +3,9 @@
 ## Decision
 Serve the whole family site from this repo on GitHub Pages, then point **pentimenti.org** at GitHub Pages so old URLs keep working.
 
+## Rollback / Network Solutions
+**Copy only.** Leave every Network Solutions Website Builder page and file in place. Do not delete, unpublish, or replace the NS originals. If we need to reverse the cutover, point DNS for `pentimenti.org` back to Network Solutions — the old site should still be there.
+
 ## Order of operations
 1. Copy pages into this repo on `site-migration` (paths matching today’s pentimenti.org URLs).
 2. Retarget internal links (and the tree’s person links) to local paths.
@@ -26,7 +29,7 @@ Most person bios, branch hubs, homepage letter, lawsuit pages, live letter URLs,
 | Live today | In this repo |
 |---|---|
 | `/` | `index.html` or keep letter as `index.html` and move trees to `tree.html` — TBD |
-| `/ancestry/` | builder-squeezed copy; **drop** once domain points here (tree is root or `/tree`) |
+| `/ancestry/` | builder-squeezed tree; skip migrating this copy (GitHub already has the good tree) — leave it on NS |
 | `/sutcliffe/.../` | `sutcliffe/.../index.html` (or `.html` with Pages pretty URLs) |
 | `/riley/.../` | `riley/.../index.html` |
 | `/bock/.../` | `bock/.../index.html` |
