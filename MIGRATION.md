@@ -11,8 +11,8 @@ Serve the whole family site from this repo on GitHub Pages, then point **pentime
 
 ## Order of operations
 1. Copy pages into this repo on `site-migration` (paths matching today’s pentimenti.org URLs).
-2. Move today’s tree `index.html` → `/tree`, copy the intro letter to `index.html`, and point the homepage CTA at `/tree`.
-3. Retarget internal links (and the tree’s person links) to local paths.
+2. ~~Move today’s tree `index.html` → `/tree`, copy the intro letter to `index.html`, and point the homepage CTA at `/tree`.~~ **Done** (`tree/index.html` + letter at `/`).
+3. Retarget internal links (and the tree’s person links) to local paths (tree person cards now use local `../sutcliffe|riley|bock/.../` paths).
 4. Preview on the branch / Pages preview.
 5. Merge to `working`.
 6. Add the custom domain in GitHub Pages settings + DNS at Network Solutions.
@@ -22,12 +22,14 @@ Serve the whole family site from this repo on GitHub Pages, then point **pentime
 See `_migration/sitemap-urls.txt` (from https://pentimenti.org/sitemap.xml, ~70 URLs).
 
 ### Already in this repo
-- `index.html` — printable branching trees (will move to `/tree`)
+- `index.html` — Pentimenti intro letter homepage (from live pentimenti.org)
+- `tree/index.html` — printable branching trees
+- `sutcliffe/`, `riley/`, `bock/` — person/lawsuit/letter pages copied from live pentimenti.org
 - `sutcliffe/carl_theodor_hansen.html`, `sutcliffe/carl_leonard_nelson.html` — older SingleFile dumps
 - `sutcliffe/letters/*` — WWI letter chapter dumps + menu
 
 ### Still only on Network Solutions Website Builder
-Most person bios, branch hubs, homepage letter, lawsuit pages, live letter URLs, etc.
+`/ancestry/` builder-squeezed tree (skip), privacy policy, and anything not listed in `_migration/sitemap-urls.txt` as copied.
 
 ## Target path mapping
 | Live today | In this repo |
