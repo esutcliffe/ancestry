@@ -102,7 +102,8 @@ def buttons_for(rel: Path) -> list[tuple[str, str, str]]:
     buttons: list[tuple[str, str, str]] = []
     if not under_tree:
         buttons.append(("Tree", f"{prefix}tree/", ICON_TREE))
-    if not is_root:
+    # No Home on root letter or on the tree page (Ernest: remove Home from tree).
+    if not is_root and not under_tree:
         home = prefix if prefix else "./"
         buttons.append(("Home", home, ICON_HOME))
     up = up_href(rel)
@@ -210,6 +211,14 @@ def main() -> int:
             skipped.append((rel.as_posix(), reason))
             continue
         original = path.read_text(encoding="utf-8")
+        items = buttons_for(rel)
+        if not items:
+            # e.g. tree page: no Tree/Home/Up — strip any prior nav
+            stripped = strip_existing(original)
+            if stripped != original:
+                path.write_text(stripped, encoding="utf-8", newline="\n")
+                updated.append(rel.as_posix())
+            continue
         block = render_block(rel)
         new = inject(original, block)
         if new == original:
