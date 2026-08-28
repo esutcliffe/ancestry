@@ -1,150 +1,861 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemType="https://schema.org/WebPage" prefix="og: http://ogp.me/ns#">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Brynn and Fallon & Carly Family Trees</title>
-  <style>
-    :root{
-      --card: #f8f5f2;
-      --muted: #5c4a36;
-      --fg: #2c2c2c;
-      --accent: #004466;
-      --line: #4a3c2b;
-      --bar: rgba(255,255,255,0.6);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: #C9B391;
-      color: var(--fg);
-    }
-    .toolbar{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:var(--bar);display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid rgba(0,0,0,.15)}
-    .toolbar .spacer{flex:1}
-    .btn{appearance:none;border:1px solid rgba(0,0,0,.2);background:#fff;color:#333;padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.08)}
-    .btn.toggle.active{background:#e6f3ff;border-color:#99c2ff}
-    .wrap{max-width:1800px;margin:24px auto;padding:0 16px;position:relative}
-    header{text-align:center;margin-bottom:18px}
-    header h1{margin:0 0 4px;font-size:28px;color:var(--fg)}
-    header p{margin:0;color:var(--muted);font-size:14px}
-    .tree{display:flex;justify-content:center;align-items:center;gap:48px;position:relative}
-    .branch{display:flex;flex-direction:row;align-items:flex-start;gap:36px;position:relative;margin-top:60px}
-    .generation{display:flex;flex-direction:column;gap:14px;position:relative;min-width:220px;justify-content:center}
-    #p-ggp,#m-ggp,#c-p-ggp,#c-m-ggp{margin-top:80px;}
-    .label{font-size:13px;font-weight:600;color:var(--muted);text-align:center;margin-bottom:6px}
-    .person{padding:10px 12px;background:var(--card);border-radius:14px;border:1px solid rgba(44,44,44,0.25);box-shadow:0 6px 12px rgba(0,0,0,.15);text-align:center;position:relative}
-    .person a{color:var(--fg);text-decoration:none;font-weight:600}
-    .person a:hover{color:var(--accent);text-decoration:underline}
-    .wires{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
-    .wire{fill:none;stroke:var(--line);stroke-width:2}
-    .junction{fill:var(--accent);stroke:none}
-    .divider{border:0;height:2px;max-width:1820px;margin:36px auto;background:linear-gradient(90deg,transparent,rgba(74,60,43,0.6),transparent)}
-    .hidden{display:none!important}
-    @media(max-width:980px){.generation{min-width:200px}}
-    @media(max-width:860px){.tree{flex-direction:column;align-items:stretch}.branch{flex-direction:column}.generation{min-width:auto}.toolbar{flex-wrap:wrap}}
-    @media print{body{background:#fff;color:#000}.toolbar{display:none!important}.person{background:#fff;border-color:#bbb;box-shadow:none}.wire{stroke:#888}.junction{fill:#888}.divider{margin:18px auto}}
+  <link rel="preconnect" href="https://fonts-cdn.edit.site" crossorigin>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://pentimenti.org/" />
+  <meta property="og:site_name" content="Family Tree">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pentimenti.org/">
+  <meta name="twitter:url" content="https://pentimenti.org/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" as="image" fetchpriority="high" href="https://pentimenti.org/__static/40ff605b-77f2-4113-8550-8b9477ff9f80/image_laptop" media="(max-width: 567px)">
+  <link rel="preload" as="image" href="https://pentimenti.org/__static/photo-1658434903022-fa09861f3141" media="(min-width: 568px)">
+  <link href="https://pentimenti.org/favicons/81ea8e4f-66b3-4d0c-812f-a98a695127b9/favicon-16x16.png" type="image/png" rel="shortcut icon" sizes="16x16">
+  <link href="https://pentimenti.org/favicons/81ea8e4f-66b3-4d0c-812f-a98a695127b9/favicon-32x32.png" type="image/png" rel="icon" sizes="32x32">
+  <link href="https://pentimenti.org/favicons/81ea8e4f-66b3-4d0c-812f-a98a695127b9/favicon-180x180.png" type="image/png" rel="icon" sizes="180x180">
+  <link rel="stylesheet" href="https://pentimenti.org/bundle/publish/0.89.1/publish.css">
+  <link rel="stylesheet" type="text/css" href="https://pentimenti.org/styles/81ea8e4f-66b3-4d0c-812f-a98a695127b9.css?v=1787860211000" id="global_styles">
+  <style type="text/css">
+  /* latin */
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/work-sans/normal/400.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0304, U+0308, U+0329;
+  } 
+  /* latin-ext */
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/work-sans/normal/400.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF, U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+20AD-20C0;
+  } 
+  /* vietnamese */
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/work-sans/normal/400.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329;
+  } 
+  /* latin */
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/work-sans/normal/500.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0304, U+0308, U+0329;
+  } 
+  /* latin-ext */
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/work-sans/normal/500.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF, U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+20AD-20C0;
+  } 
+  /* vietnamese */
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/work-sans/normal/500.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329;
+  } 
+  /* latin */
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/work-sans/normal/700.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0304, U+0308, U+0329;
+  } 
+  /* latin-ext */
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/work-sans/normal/700.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF, U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+20AD-20C0;
+  } 
+  /* vietnamese */
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/work-sans/normal/700.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329;
+  } 
+  /* latin */
+  @font-face {
+    font-family: 'Taviraj';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/taviraj/normal/400.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0304, U+0308, U+0329;
+  } 
+  /* latin-ext */
+  @font-face {
+    font-family: 'Taviraj';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/taviraj/normal/400.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF, U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+20AD-20C0;
+  } 
+  /* thai */
+  @font-face {
+    font-family: 'Taviraj';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/taviraj/normal/400.woff2) format('woff2');
+    unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC, U+02D7, U+0303, U+0331;
+  } 
+  /* vietnamese */
+  @font-face {
+    font-family: 'Taviraj';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/taviraj/normal/400.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329;
+  } 
+  /* latin */
+  @font-face {
+    font-family: 'Taviraj';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/taviraj/normal/500.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0304, U+0308, U+0329;
+  } 
+  /* latin-ext */
+  @font-face {
+    font-family: 'Taviraj';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/taviraj/normal/500.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF, U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+20AD-20C0;
+  } 
+  /* thai */
+  @font-face {
+    font-family: 'Taviraj';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/taviraj/normal/500.woff2) format('woff2');
+    unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC, U+02D7, U+0303, U+0331;
+  } 
+  /* vietnamese */
+  @font-face {
+    font-family: 'Taviraj';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/taviraj/normal/500.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329;
+  } 
+  /* latin */
+  @font-face {
+    font-family: 'Taviraj';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/taviraj/normal/700.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0304, U+0308, U+0329;
+  } 
+  /* latin-ext */
+  @font-face {
+    font-family: 'Taviraj';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/taviraj/normal/700.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF, U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+20AD-20C0;
+  } 
+  /* thai */
+  @font-face {
+    font-family: 'Taviraj';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/taviraj/normal/700.woff2) format('woff2');
+    unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC, U+02D7, U+0303, U+0331;
+  } 
+  /* vietnamese */
+  @font-face {
+    font-family: 'Taviraj';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts-cdn.edit.site/taviraj/normal/700.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329;
+  }
   </style>
+  <style>#mobile_table{display:none}@media screen and (max-width:1040px){#desktop_table{display:none}#mobile_table{display:block}}.section-40ff605b-77f2-4113-8550-8b9477ff9f80{padding-top:0;padding-bottom:0}.space__block{font-size:1px}@media(min-width:1921px){.template .space__block{font-size:1.2px}}@media(max-width:1366px){.template .space__block{font-size:.5px}}@media(max-width:1024px){.template .space__block{font-size:.5px}}@media(max-width:767px){.template .space__block{font-size:.3px}}@media screen and (max-width:2560px){.section-40ff605b-77f2-4113-8550-8b9477ff9f80{padding-top:0;padding-bottom:0}}@media screen and (max-width:1920px){.section-40ff605b-77f2-4113-8550-8b9477ff9f80{padding-top:0;padding-bottom:0}}@media screen and (max-width:1366px){.section-40ff605b-77f2-4113-8550-8b9477ff9f80{padding-top:0;padding-bottom:0}}@media screen and (max-width:1024px){.section-40ff605b-77f2-4113-8550-8b9477ff9f80{padding-top:0;padding-bottom:0}}@media screen and (max-width:767px){.section-40ff605b-77f2-4113-8550-8b9477ff9f80{padding-top:0;padding-bottom:0}}@media screen and (min-width:1025px){.image-ffc07b46-0931-4880-8972-bb194cf9a5ce{height:221px}.image-ffc07b46-0931-4880-8972-bb194cf9a5ce img.picture__fill{width:auto!important;height:auto!important}.image-ffc07b46-0931-4880-8972-bb194cf9a5ce .picture__pin-bounds{transform:translate(-50%,-50%) scale(1)!important;top:50%;left:50%!important;transform-origin:50% 50%}}@media screen and (min-width:568px) and (max-width:1024px){.image-ffc07b46-0931-4880-8972-bb194cf9a5ce{height:221px}.image-ffc07b46-0931-4880-8972-bb194cf9a5ce img.picture__fill{width:auto!important;height:auto!important}.image-ffc07b46-0931-4880-8972-bb194cf9a5ce .picture__pin-bounds{transform:translate(-50%,-50%) scale(1)!important;top:50%;left:50%!important;transform-origin:50% 50%}}@media screen and (max-width:567px){.image-ffc07b46-0931-4880-8972-bb194cf9a5ce{height:123px}.image-ffc07b46-0931-4880-8972-bb194cf9a5ce img.picture__fill{width:auto!important;height:auto!important}.image-ffc07b46-0931-4880-8972-bb194cf9a5ce .picture__pin-bounds{transform:translate(-50%,-50%) scale(1)!important;top:50%;left:50%!important;transform-origin:50% 50%}}</style>
 </head>
-<body>
-  <div class="toolbar">
-    <strong>Print options:</strong>
-    <button class="btn toggle active" id="toggle-top">Include Brynn and Fallon's Tree</button>
-    <button class="btn toggle active" id="toggle-carly">Include Carly's Tree</button>
-    <div class="spacer"></div>
-    <button class="btn" id="print-btn">Print…</button>
-  </div>
+<body itemProp="mainContentOfPage">
+<div class="js-widget" data-widget="svgLoader" data-icons='["sp-check","sp-cross-20","sp-arrow-next","sp-arrow-up","sp-close-18"]'></div>
+<div id="app"><div class="template link_01 blockquote1_style-01 blockquote2_style-02 _grid-project"><main class="layout main"><section data-widget="section" class="s-section js-widget section-40ff605b-77f2-4113-8550-8b9477ff9f80" id="s-40ff605b-77f2-4113-8550-8b9477ff9f80" style="background:rgb(var(--function_color_altBrand_darken_20))" data-style="{&quot;rows&quot;:41,&quot;gap&quot;:15,&quot;background&quot;:&quot;rgb(var(--function_color_altBrand_darken_20))&quot;,&quot;rowsMobile&quot;:3}" data-settings="{&quot;isSliderBg&quot;:false}"><div><div class="section_bg"><div class="_error-wrap"><picture class="js-img-bg-picture section_bg-img lazy" data-sizes="{&quot;laptop&quot;:[0,500],&quot;desktop&quot;:[501,1500],&quot;quad&quot;:[1501,null]}" data-src="https://pentimenti.org/__static/photo-1658434903022-fa09861f3141" data-iesrc="https://pentimenti.org/__static/photo-1658434903022-fa09861f3141" style="opacity:0.56" data-object-fit="cover"><source data-device="laptop" media="(max-width:500px)" srcSet="https://pentimenti.org/__static/40ff605b-77f2-4113-8550-8b9477ff9f80/image_laptop"/><source data-device="desktop" media="(min-width:501px) and (max-width:1500px)" srcSet="https://pentimenti.org/__static/40ff605b-77f2-4113-8550-8b9477ff9f80/image_desktop"/><source data-device="quad" media="(min-width:1501px)" srcSet="https://pentimenti.org/__static/photo-1658434903022-fa09861f3141"/><img src="https://pentimenti.org/__static/photo-1658434903022-fa09861f3141" alt="" title="" fetchPriority="high"/><noscript><img class="" alt="" title="" data-object-fit="cover" src="https://pentimenti.org/__static/photo-1658434903022-fa09861f3141" itemProp="image"/></noscript></picture></div></div><div class="s-wrapper"><div style="display:grid;grid-template-columns:repeat(24, minmax(0px, 1fr));gap:15px" class="layout"><div class="grid-component grid-component--redactor grid-component--resize" style="grid-area:3 / 3 / 28 / 23;z-index:1" data-settings="{&quot;hash&quot;:&quot;9c1114af-1efd-491e-afe8-56974f09044a&quot;,&quot;name&quot;:&quot;redactor&quot;,&quot;coordinates&quot;:{&quot;rowStart&quot;:2,&quot;columnStart&quot;:2,&quot;width&quot;:20,&quot;height&quot;:25},&quot;coordinatesMobile&quot;:{&quot;changed&quot;:false,&quot;rowStart&quot;:0,&quot;columnStart&quot;:0,&quot;width&quot;:8,&quot;height&quot;:1},&quot;order&quot;:1,&quot;orderMobile&quot;:1,&quot;disabledObserverUpdateSize&quot;:false,&quot;isMobileAutoHeight&quot;:true}"><div class="section__text"><div class="slate " spellcheck="false" data-slate-editor="true" data-slate-node="value" contenteditable="false" zindex="-1" style="position:relative;white-space:pre-wrap;word-wrap:break-word"><span class="slate__paragraph" style="text-align:center"><span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="font-weight:bold;color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">Pentimenti - The Ghosts in the Painting</span></span></span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">
 
-  <!-- =================== TREE #1 =================== -->
-  <div class="wrap" id="section-top">
-    <header>
-      <h1>Brynn and Fallon's Family Tree</h1>
-      <p>Parents in center • Paternal line to the left • Maternal line to the right</p>
-    </header>
-    <svg class="wires" id="wires-1" aria-hidden="true"></svg>
-    <div class="tree" id="tree">
-      <div class="branch" id="paternal">
-        <div class="generation" id="p-gggp">
-          <div class="label">Great-Great-Grandparents</div>
-          <div class="person" id="p-gggp-1"><a href="https://pentimenti.org/riley/john-w-riley">John William Reilly (1910-1992)</a></div><div class="person" id="p-gggp-2"><a href="https://pentimenti.org/riley/edna-edith-parker">Edna Edith Parker (1910-1967)</a></div><div class="person" id="p-gggp-3"><a href="https://pentimenti.org/riley/edward-j-cummings">Edward Joseph Cummings (1894-1935)</a></div><div class="person" id="p-gggp-4"><a href="https://pentimenti.org/riley/mary-g-cullen">Mary Genevieve Cullen (1894-1987)</a></div><div class="person" id="p-gggp-5"><a href="https://pentimenti.org/riley/peter-george-barbalias">Peter George Barbalias (1889-1969)</a></div><div class="person" id="p-gggp-6"><a href="https://pentimenti.org/riley/virginia-meniates">Virginia Meniates (1906-1976)</a></div><div class="person" id="p-gggp-7"><a href="https://pentimenti.org/riley/peter-n-madamas">Peter N Madamas (1890-1949)</a></div><div class="person" id="p-gggp-8"><a href="https://pentimenti.org/riley/mary-strattos">Mary Strattos (1899-1979)</a></div>
-        </div>
-        <div class="generation" id="p-ggp">
-          <div class="label">Great-Grandparents</div>
-          <div class="person" id="p-ggp-1"><a href="https://pentimenti.org/riley/john-w-riley-2">John William Riley (1938-2023)</a></div><div class="person" id="p-ggp-2"><a href="https://pentimenti.org/riley/marion-l-cummings">Marion Loretta Cummings (1928-2004)</a></div><div class="person" id="p-ggp-3"><a href="https://pentimenti.org/riley/james-peter-barbalias">James Peter Barbalias (1934-2023)</a></div><div class="person" id="p-ggp-4"><a href="https://pentimenti.org/riley/aphrodite-madamas">Aphrodite Madamas (1931-2025)</a></div>
-        </div>
-      </div>
-      <div class="generation" id="center-parents">
-        <div class="label">Parents & Grandparents</div>
-        <div class="person" id="p-gp-1"><a href="https://pentimenti.org/riley/michael-henry-riley">Michael Henry Riley (1960)</a></div>
-        <div class="person" id="p-gp-2"><a href="https://pentimenti.org/riley/maria-a-barbalias">Maria A Barbalias (1962)</a></div>
-        <div class="person" id="parent-a"><a href="https://pentimenti.org/riley/anthony-james-riley">Anthony James Riley (1988)</a></div>
-        <div class="person" id="parent-b"><a href="https://pentimenti.org/sutcliffe/leigh-tracy-sutcliffe">Leigh Tracy Sutcliffe (1984)</a></div>
-        <div class="person" id="m-gp-1"><a href="https://pentimenti.org/sutcliffe/ernest-albert-sutcliffe-2">Ernest Albert Sutcliffe (1953)</a></div>
-        <div class="person" id="m-gp-2"><a href="https://pentimenti.org/sutcliffe/candace-lee-hansen">Candace Lee Hansen (1954)</a></div>
-      </div>
-      <div class="branch" id="maternal">
-        <div class="generation" id="m-ggp">
-          <div class="label">Great-Grandparents</div>
-          <div class="person" id="m-ggp-1"><a href="https://pentimenti.org/sutcliffe/ernest-albert-sutcliffe">Ernest Albert Sutcliffe (1930-2007)</a></div><div class="person" id="m-ggp-2"><a href="https://pentimenti.org/sutcliffe/esther-evelyn-nelson">Esther Evelyn Nelson (1932-1996)</a></div><div class="person" id="m-ggp-3"><a href="https://pentimenti.org/sutcliffe/carl-theodor-hansen">Carl Theodor Hansen (1921-2019)</a></div><div class="person" id="m-ggp-4"><a href="https://pentimenti.org/sutcliffe/phyllis-jean-tracy">Phyllis Jean Tracy (1930-1998)</a></div>
-        </div>
-        <div class="generation" id="m-gggp">
-          <div class="label">Great-Great-Grandparents</div>
-          <div class="person" id="m-gggp-1"><a href="https://pentimenti.org/sutcliffe/fred-sutcliffe/">Fred Sutcliffe (1894-1945)</a></div><div class="person" id="m-gggp-2"><a href="https://pentimenti.org/sutcliffe/maude-mildred-hanna/">Maude Mildred Hanna (1895-1946)</a></div><div class="person" id="m-gggp-3"><a href="https://pentimenti.org/sutcliffe/karl-carl-leonard-nilsson-nelson/">Carl Leonard Nelson (1894-1986)</a></div><div class="person" id="m-gggp-4"><a href="https://pentimenti.org/sutcliffe/evelyn-clair-dodge/">Evelyn Clair Dodge (1911-2007)</a></div><div class="person" id="m-gggp-5"><a href="https://pentimenti.org/sutcliffe/carl-theodor-hansen/">Carl Theodor Hansen (1884-1938)</a></div><div class="person" id="m-gggp-6"><a href="https://pentimenti.org/sutcliffe/hazel-alberta-atkins/">Hazel Alberta Atkins (1902-1998)</a></div><div class="person" id="m-gggp-7"><a href="https://pentimenti.org/sutcliffe/hanford-wesley-tracy/">Hanford Wesley Tracy (1903-1962)</a></div><div class="person" id="m-gggp-8"><a href="https://pentimenti.org/sutcliffe/florence-gladys-mcdonough/">Florence Gladys McDonough (1908-1995)</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
+</span></span></span></span></span><span class="slate__paragraph" style="text-align:justify"><span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">Dear Brynn, Carly and Fallon:
 
-  <hr class="divider" id="divider-main" />
+Imagine an artist painting a portrait. Maybe at first, they painted the person wearing a hat. But halfway through, the artist decided, &quot;No, I don&#x27;t like the hat,&quot; and they painted over it with hair or the background.
+When the painting is new, you can only see the final layer. But as the painting gets older—maybe a hundred years later—the paint on top starts to become a little see-through. Suddenly, you can see the faint outline of that old hat showing through the hair.
+That &quot;ghost&quot; of the old painting showing through the new one is called pentimento. It comes from an Italian word that means &quot;to change your mind.&quot; It’s a clue that tells us the story of how the painting was made.</span></span></span></span></span><span class="slate__paragraph" style="text-align:center"><span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">
+</span></span></span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="font-weight:bold;color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">We Are Living Paintings</span></span></span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">
 
-  <!-- =================== TREE #2 (Carly) =================== -->
-  <div class="wrap" id="section-carly">
-    <header>
-      <h1>Carly's Family Tree</h1>
-      <p>Parents in center • Paternal line to the left • Maternal line to the right</p>
-    </header>
-    <svg class="wires" id="wires-2" aria-hidden="true"></svg>
-    <div class="tree" id="tree-c">
-      <div class="branch" id="c-paternal">
-        <div class="generation" id="c-p-gggp">
-          <div class="label">Great-Great-Grandparents</div>
-          <div class="person" id="c-p-gggp-1"><a href="https://pentimenti.org/sutcliffe/fred-sutcliffe">Fred Sutcliffe (1894-1945)</a></div><div class="person" id="c-p-gggp-2"><a href="https://pentimenti.org/sutcliffe/maude-mildred-hanna">Maude Mildred Hanna (1895-1946)</a></div><div class="person" id="c-p-gggp-3"><a href="https://pentimenti.org/sutcliffe/karl-carl-leonard-nilsson-nelson/">Carl Leonard Nelson (1894-1986)</a></div><div class="person" id="c-p-gggp-4"><a href="https://pentimenti.org/sutcliffe/evelyn-clair-dodge/">Evelyn Clair Dodge (1911-2007)</a></div><div class="person" id="c-p-gggp-5"><a href="https://pentimenti.org/sutcliffe/carl-theodor-hansen">Carl Theodor Hansen (1894-1938)</a></div><div class="person" id="c-p-gggp-6"><a href="https://pentimenti.org/sutcliffe/hazel-alberta-atkins">Hazel Alberta Atkins (1902-1998)</a></div><div class="person" id="c-p-gggp-7"><a href="https://pentimenti.org/sutcliffe/hanford-wesley-tracy">Hanford Wesley Tracy (1903-1962)</a></div><div class="person" id="c-p-gggp-8"><a href="https://pentimenti.org/sutcliffe/florence-gladys-mcdonough">Florence Gladys McDonough (1908-1995)</a></div>
-        </div>
-        <div class="generation" id="c-p-ggp">
-          <div class="label">Great-Grandparents</div>
-          <div class="person" id="c-p-ggp-1"><a href="https://pentimenti.org/sutcliffe/ernest-albert-sutcliffe">Ernest Albert Sutcliffe (1930-2007)</a></div><div class="person" id="c-p-ggp-2"><a href="https://pentimenti.org/sutcliffe/esther-evelyn-nelson">Esther Evelyn Nelson (1932-1996)</a></div><div class="person" id="c-p-ggp-3"><a href="https://pentimenti.org/sutcliffe/carl-theodor-hansen">Carl Theodor Hansen (1921-2019)</a></div><div class="person" id="c-p-ggp-4"><a href="https://pentimenti.org/sutcliffe/phyllis-jean-tracy">Phyllis Jean Tracy (1930-1998)</a></div>
-        </div>
-      </div>
-      <div class="generation" id="c-center-parents">
-        <div class="label">Parents & Grandparents</div>
-        <div class="person" id="c-p-gp-1"><a href="https://pentimenti.org/sutcliffe/ernest-albert-sutcliffe-2">Ernest Albert Sutcliffe (1953)</a></div>
-        <div class="person" id="c-p-gp-2"><a href="https://pentimenti.org/sutcliffe/candace-lee-hansen">Candace Lee Hansen (1954)</a></div>
-        <div class="person" id="c-parent-a"><a href="https://pentimenti.org/sutcliffe/devin-reed-sutcliffe">Devin Reed Sutcliffe (1987)</a></div>
-        <div class="person" id="c-parent-b"><a href="https://pentimenti.org/bock/heidi-ashley-bock">Heidi Ashley Bock (1984)</a></div>
-        <div class="person" id="c-m-gp-1"><a href="https://pentimenti.org/bock/donald-paul-bock">Donald Paul Bock (1951)</a></div>
-        <div class="person" id="c-m-gp-2"><a href="https://pentimenti.org/bock/sara-theresa-brown">Sara Theresa Brown (1953)</a></div>
-      </div>
-      <div class="branch" id="c-maternal">
-        <div class="generation" id="c-m-ggp">
-          <div class="label">Great-Grandparents</div>
-          <div class="person" id="c-m-ggp-1"><a href="https://pentimenti.org/bock/charles-f-bock-2">Charles F Bock (1911-1967)</a></div><div class="person" id="c-m-ggp-2"><a href="https://pentimenti.org/bock/alice-frances-duhamel">Alice Frances Duhamel (1920-1990)</a></div><div class="person" id="c-m-ggp-3"><a href="https://pentimenti.org/bock/william-james-brown">William James Brown (1909-1994)</a></div><div class="person" id="c-m-ggp-4"><a href="https://pentimenti.org/bock/dorothy-clair-obrien">Dorothy Clair O'Brien (1918-2010)</a></div>
-        </div>
-        <div class="generation" id="c-m-gggp">
-          <div class="label">Great-Great-Grandparents</div>
-          <div class="person" id="c-m-gggp-1"><a href="https://pentimenti.org/bock/charles-f-bock">Charles F Bock (1877-1973)</a></div><div class="person" id="c-m-gggp-2"><a href="https://pentimenti.org/bock/eva-mae-anderson">Eva Mae Anderson (1891-1961)</a></div><div class="person" id="c-m-gggp-3"><a href="https://pentimenti.org/bock/adolph-t-duhamel">Adolph T Duhamel (1887-1960)</a></div><div class="person" id="c-m-gggp-4"><a href="https://pentimenti.org/bock/alice-maillet">Alice Maillet (1891-1951)</a></div><div class="person" id="c-m-gggp-5"><a href="https://pentimenti.org/bock/james-f-brown">James F Brown (1869-1948)</a></div><div class="person" id="c-m-gggp-6"><a href="https://pentimenti.org/bock/mary-ann-foran">Mary Ann Foran (1870-1967)</a></div><div class="person" id="c-m-gggp-7"><a href="https://pentimenti.org/bock/thomas-obrien">Thomas O'Brien (1875-1967)</a></div><div class="person" id="c-m-gggp-8"><a href="https://pentimenti.org/bock/margaret-mcadams">Margaret McAdams (1878-1918)</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
+</span></span></span></span></span><span class="slate__paragraph" style="text-align:justify"><span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">Now, think about you. You are the bright, colorful, finished painting that everyone sees today. But, just like that old canvas, you have layers underneath you. Those layers are the stories of our ancestors—your great-grandparents and the people who came before them.
+Even though they lived a long time ago, their &quot;brushstrokes&quot; still show through in your life. Here is how you can spot their pentimento in the real world:</span></span></span></span></span><span class="slate__paragraph" style="text-align:justify"><span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">
+</span></span></span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="font-weight:bold;color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">Where We Live (The Background): </span></span></span></span></span><span class="slate__paragraph" style="text-align:justify"><span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">Have you ever wondered why we live in this town? It’s usually because of a decision someone made a long time ago. Maybe your Great-Grandpa moved here to find a job in a factory, or your Great-Grandma moved here to be close to the ocean. We are standing on this spot of earth because of a choice they made in the &quot;underpainting&quot; of our family history.
 
-  <script>
-    function buildPairs(prefix){return[[`${prefix}p-gggp-1`,`${prefix}p-gggp-2`,`${prefix}p-ggp-1`],[`${prefix}p-gggp-3`,`${prefix}p-gggp-4`,`${prefix}p-ggp-2`],[`${prefix}p-gggp-5`,`${prefix}p-gggp-6`,`${prefix}p-ggp-3`],[`${prefix}p-gggp-7`,`${prefix}p-gggp-8`,`${prefix}p-ggp-4`],[`${prefix}p-ggp-1`,`${prefix}p-ggp-2`,`${prefix}p-gp-1`],[`${prefix}p-ggp-3`,`${prefix}p-ggp-4`,`${prefix}p-gp-2`],[`${prefix}p-gp-1`,`${prefix}p-gp-2`,`${prefix}parent-a`],[`${prefix}m-gggp-1`,`${prefix}m-gggp-2`,`${prefix}m-ggp-1`],[`${prefix}m-gggp-3`,`${prefix}m-gggp-4`,`${prefix}m-ggp-2`],[`${prefix}m-gggp-5`,`${prefix}m-gggp-6`,`${prefix}m-ggp-3`],[`${prefix}m-gggp-7`,`${prefix}m-gggp-8`,`${prefix}m-ggp-4`],[`${prefix}m-ggp-1`,`${prefix}m-ggp-2`,`${prefix}m-gp-1`],[`${prefix}m-ggp-3`,`${prefix}m-ggp-4`,`${prefix}m-gp-2`],[`${prefix}m-gp-1`,`${prefix}m-gp-2`,`${prefix}parent-b`]]}
-    const pairs1=buildPairs("");const pairs2=buildPairs("c-");const arrowMarker='url(#arrow)';
-    function getAnchor(svgEl,el,side){const r=el.getBoundingClientRect();const s=svgEl.getBoundingClientRect();const x=side==='right'?r.right-s.left:side==='left'?r.left-s.left:(r.left+r.width/2)-s.left;const y=(r.top+r.height/2)-s.top;return{x,y}};
-    function drawFor(svgEl,pairs){if(!svgEl||svgEl.classList.contains('hidden'))return;const box=svgEl.getBoundingClientRect();svgEl.setAttribute('viewBox',`0 0 ${box.width} ${box.height}`);Array.from(svgEl.querySelectorAll('path,circle')).forEach(n=>n.remove());pairs.forEach(([p1id,p2id,child])=>{const childEl=document.getElementById(child);const pEl1=document.getElementById(p1id);const pEl2=document.getElementById(p2id);if(!childEl||!pEl1||!pEl2)return;const prefix=child.startsWith('c-')?'c-':'';const isLeft=child.startsWith(prefix+'p-')||child===prefix+'parent-a';const parentSide=isLeft?'right':'left';const childSide=isLeft?'left':'right';const a1=getAnchor(svgEl,pEl1,parentSide);const a2=getAnchor(svgEl,pEl2,parentSide);const c=getAnchor(svgEl,childEl,childSide);const midX=(a1.x+a2.x)/2;const midY=(a1.y+a2.y)/2;const p1Path=document.createElementNS('http://www.w3.org/2000/svg','path');p1Path.setAttribute('d',`M ${a1.x} ${a1.y} L ${midX} ${midY}`);p1Path.setAttribute('class','wire');svgEl.appendChild(p1Path);const p2Path=document.createElementNS('http://www.w3.org/2000/svg','path');p2Path.setAttribute('d',`M ${a2.x} ${a2.y} L ${midX} ${midY}`);p2Path.setAttribute('class','wire');svgEl.appendChild(p2Path);const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');dot.setAttribute('cx',midX);dot.setAttribute('cy',midY);dot.setAttribute('r',4);dot.setAttribute('class','junction');svgEl.appendChild(dot);const downPath=document.createElementNS('http://www.w3.org/2000/svg','path');downPath.setAttribute('d',`M ${midX} ${midY} L ${c.x} ${c.y}`);downPath.setAttribute('class','wire');downPath.setAttribute('marker-end',arrowMarker);svgEl.appendChild(downPath);});}
-    function drawAll(){drawFor(document.getElementById('wires-1'),pairs1);drawFor(document.getElementById('wires-2'),pairs2)}
-    function setIncluded(sectionId,svgId,toggleBtn){const section=document.getElementById(sectionId);const svg=document.getElementById(svgId);const isHidden=section.classList.toggle('hidden');if(svg)svg.classList.toggle('hidden',isHidden);toggleBtn.classList.toggle('active',!isHidden);const title=section.querySelector('header h1').textContent.replace("'s Family Tree","'s Tree");toggleBtn.textContent=`Include ${title}`;if(!isHidden)requestAnimationFrame(drawAll);const divider=document.getElementById('divider-main');const topHidden=document.getElementById('section-top').classList.contains('hidden');const carlyHidden=document.getElementById('section-carly').classList.contains('hidden');divider.classList.toggle('hidden',topHidden||carlyHidden)}
-    window.addEventListener('load',()=>{document.getElementById('toggle-top').addEventListener('click',e=>{setIncluded('section-top','wires-1',e.currentTarget)});document.getElementById('toggle-carly').addEventListener('click',e=>{setIncluded('section-carly','wires-2',e.currentTarget)});document.getElementById('print-btn').addEventListener('click',()=>{drawAll();window.print()});drawAll()});window.addEventListener('resize',()=>requestAnimationFrame(drawAll));
-  </script>
+</span></span></span></span></span><span class="slate__paragraph" style="text-align:justify"><span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="font-weight:bold;color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">Our Traditions (The Colors): </span></span></span></span></span><span class="slate__paragraph" style="text-align:justify"><span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">Think about the funny things we do on holidays or the special way we cook Sunday dinner. Those aren&#x27;t accidents! Those are habits passed down layer by layer. When we bake that special bread, we are repeating a motion someone did 100 years ago in a tiny kitchen in another country. It’s a little piece of the past showing through in our kitchen today.
+
+</span></span></span></span></span><span class="slate__paragraph" style="text-align:justify"><span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="font-weight:bold;color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">Your Personality (The Details):</span></span></span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true"> </span></span></span></span></span><span class="slate__paragraph" style="text-align:justify"><span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">This is my favorite part. Sometimes, you do something—maybe the way you tap your foot when you&#x27;re thinking, or how stubborn you get when you want to win a game—and it reminds me exactly of my father, or an aunt you never met. You have your own personality, of course! But those little tendencies? Those are the pentimenti. It’s the strength, the humor, or the talent of the people who came before you, shining through your eyes.
+
+</span></span></span></span></span><span class="slate__paragraph" style="text-align:justify"><span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-font-size="19em" data-recalc-font-size-mobile="true" data-font-size-mobile="19em" style="color:rgb(var(--preColor_textAlt));font-size:19em"><span data-slate-string="true">Genealogy—which is just a fancy word for being a family detective—is how we look for those &quot;pentimenti&quot;. When we find old records or photos, we aren&#x27;t just looking at names and dates. We are trying to see the sketch underneath our lives.
+Knowing about the layers makes you more interesting. It means you aren&#x27;t just one person standing alone; you are a masterpiece built on top of hundreds of stories, mistakes, adventures, and brave choices.
+
+
+With love and pride,
+         OPA</span></span></span></span></span></div></div></div><div class="grid-component grid-component--image grid-component--resize" style="grid-area:28 / 9 / 33 / 21;z-index:2" data-settings="{&quot;hash&quot;:&quot;ffc07b46-0931-4880-8972-bb194cf9a5ce&quot;,&quot;name&quot;:&quot;image&quot;,&quot;coordinates&quot;:{&quot;rowStart&quot;:27,&quot;columnStart&quot;:8,&quot;width&quot;:12,&quot;height&quot;:5},&quot;coordinatesMobile&quot;:{&quot;changed&quot;:false,&quot;rowStart&quot;:0,&quot;columnStart&quot;:0,&quot;width&quot;:8,&quot;height&quot;:5},&quot;order&quot;:2,&quot;orderMobile&quot;:2,&quot;disabledObserverUpdateSize&quot;:false,&quot;isMobileAutoHeight&quot;:false}"><div class="picture__item-container picture__caption-bottom" id="ffc07b46-0931-4880-8972-bb194cf9a5ce"><div class="picture-wrap picture-wrap_contain image-ffc07b46-0931-4880-8972-bb194cf9a5ce is-image-v2 is-image-resize"><div class="picture__pin-bounds"><a href="tree/" class="img__container-one js-widget image-ffc07b46-0931-4880-8972-bb194cf9a5ceo img__container-link" target="_self"><div class="img__inner-border img__inner-border--inside" style="border-width:0px;border-color:var(--color_brand);border-style:solid"></div><picture class="lazy" data-sizes="{&quot;phone&quot;:[0,567],&quot;tablet&quot;:[568,1024],&quot;quad&quot;:[1025,null]}" data-iesrc="https://pentimenti.org/__static/production-webdotcom-5/295/1961295/zra7TyeN/bdd7608021b5479dabd8835972f302b2" data-classnames="picture__fill image-ffc07b46-0931-4880-8972-bb194cf9a5cep" data-alt="" itemProp="image" itemscope="" itemType="https://schema.org/ImageObject"><source data-device="phone" media="(max-width:567px)" srcSet="https://pentimenti.org/__static/ffc07b46-0931-4880-8972-bb194cf9a5ce/image_phone"/><source data-device="tablet" media="(min-width:568px) and (max-width:1024px)" srcSet="https://pentimenti.org/__static/ffc07b46-0931-4880-8972-bb194cf9a5ce/image_tablet"/><source data-device="quad" media="(min-width:1025px)" srcSet="https://pentimenti.org/__static/ffc07b46-0931-4880-8972-bb194cf9a5ce/image_quad"/><noscript><img class="picture__fill image-ffc07b46-0931-4880-8972-bb194cf9a5cep" alt="" src="https://pentimenti.org/__static/production-webdotcom-5/295/1961295/zra7TyeN/bdd7608021b5479dabd8835972f302b2" itemProp="image"/></noscript></picture></a></div></div><div class="layout"><div class="grid-component grid-component--redactor" data-settings="{&quot;hash&quot;:&quot;98a53012-b8ad-4e14-a1ca-24eee7162bda&quot;,&quot;name&quot;:&quot;redactor&quot;,&quot;coordinates&quot;:null,&quot;coordinatesMobile&quot;:null,&quot;disabledObserverUpdateSize&quot;:false,&quot;isMobileAutoHeight&quot;:true}"><div class="section__text"><div class="slate " spellcheck="false" data-slate-editor="true" data-slate-node="value" contenteditable="false" zindex="-1" style="position:relative;white-space:pre-wrap;word-wrap:break-word"><span class="slate__paragraph" style="text-align:center"><span><span data-slate-node="text"><span class="slate__leaf _decoration _has-mobile-font-size" data-slate-leaf="true" data-recalc-font-size-mobile="true" data-font-size-mobile="15em" style="font-weight:bold"><span data-slate-string="true"><a href="tree/">CLICK TO SEE FAMILY TREE</a></span></span></span></span></span></div></div></div></div></div></div></div></div></div><style>#s-40ff605b-77f2-4113-8550-8b9477ff9f80 > div > .s-wrapper > .layout{grid-template-rows:repeat(41, 44px)}@media(max-width:1024px){#s-40ff605b-77f2-4113-8550-8b9477ff9f80 > div > .s-wrapper > .layout{grid-template-rows:repeat(3, 44px)}}</style></section></main><div class="fixed-block"><div class="fixed-block__box"><div class="fixed-block__right"><div class="layout"><div class="grid-component grid-component--back_to_top" data-settings="{&quot;hash&quot;:&quot;3b7577f3-6cef-38a4-a4b8-492abd6bafec&quot;,&quot;name&quot;:&quot;back_to_top&quot;,&quot;coordinates&quot;:null,&quot;coordinatesMobile&quot;:null,&quot;disabledObserverUpdateSize&quot;:false,&quot;isMobileAutoHeight&quot;:false}"><div class="back-to-top"><i class="icon icon icon_primary" data-style="{}"><svg data-style="{}"><use xlink:href="#sp-arrow-up"></use></svg></i><i class="icon icon icon_secondary" data-style="{}"><svg data-style="{}"><use xlink:href="#sp-arrow-up"></use></svg></i></div></div></div></div></div></div></div><svg height="0" width="0" style="position:absolute"><defs><clipPath id="image-crop-shape-square" clipPathUnits="objectBoundingBox"><rect width="1" height="1"></rect></clipPath><clipPath id="image-crop-shape-rounded-square" clipPathUnits="objectBoundingBox"><rect width="1" height="1" rx="0.209" ry="0.209"></rect></clipPath><clipPath id="image-crop-shape-circle" clipPathUnits="objectBoundingBox"><circle cx="0.5" cy="0.5" r="0.5"></circle></clipPath><clipPath id="image-crop-shape-triangle" clipPathUnits="objectBoundingBox"><path d="M0.5,0 L1,1 H0 Z"></path></clipPath><clipPath id="image-crop-shape-diamond" clipPathUnits="objectBoundingBox"><path d="M0.5,0 L1,0.5 L0.5,1 L0,0.5 Z"></path></clipPath><clipPath id="image-crop-shape-clover" clipPathUnits="objectBoundingBox"><path d="M0.42,0C0.46,0 0.5,0.04 0.5,0.09V0.09C0.5,0.04 0.54,0 0.58,0H0.91C0.96,0 1,0.04 1,0.09V0.42C1,0.47 0.96,0.5 0.91,0.5H0.91C0.96,0.5 1,0.54 1,0.59V0.91C1,0.96 0.96,1 0.91,1H0.58C0.54,1 0.5,0.96 0.5,0.91V0.91C0.5,0.96 0.46,1 0.42,1H0.09C0.04,1 0,0.96 0,0.91V0.59C0,0.54 0.04,0.5 0.09,0.5H0.09C0.04,0.5 0,0.47 0,0.42V0.09C0,0.04 0.04,0 0.09,0H0.42Z"></path></clipPath><clipPath id="image-crop-shape-pinwheel" clipPathUnits="objectBoundingBox"><path d="M0.34 0C0.44 0 0.5 0.07 0.5 0.17V0H1V0.34C1 0.44 0.91 0.51 0.83 0.51H1V1H0.66C0.56 1 0.5 0.93 0.5 0.82V1H0V0.66C0 0.58 0.09 0.51 0.17 0.5H0V0H0.34Z"></path></clipPath><clipPath id="image-crop-shape-leaf" clipPathUnits="objectBoundingBox"><path d="M0,0H0.58C0.82,0 1,0.18 1,0.42V1H0.42C0.19,1 0,0.81 0,0.58V0Z"></path></clipPath><clipPath id="image-crop-shape-circle-square" clipPathUnits="objectBoundingBox"><path d="M0.5,0C0.78,0 1,0.24 1,0.5V1H0V0.5C0,0.24 0.22,0 0.5,0Z"></path></clipPath><clipPath id="image-crop-shape-parallelogram" clipPathUnits="objectBoundingBox"><path d="M0 0H0.74L1 1H0.26L0 0Z"></path></clipPath><clipPath id="image-crop-shape-pentagon" clipPathUnits="objectBoundingBox"><path d="M0.5,0 L1,0.382 L0.809,1 L0.191,1 L0,0.382 Z"></path></clipPath><clipPath id="image-crop-shape-hexagon" clipPathUnits="objectBoundingBox"><path d="M0.5,0 L1,0.25 L1,0.75 L0.5,1 L0,0.75 L0,0.25 Z"></path></clipPath><clipPath id="image-crop-shape-octagon" clipPathUnits="objectBoundingBox"><path d="M0.5,0 L0.8536,0.1464 L1,0.5 L0.8536,0.8536 L0.5,1 L0.1464,0.8536 L0,0.5 L0.1464,0.1464 Z"></path></clipPath><clipPath id="image-crop-shape-star" clipPathUnits="objectBoundingBox"><path d="M0.5,0 L0.617,0.35 L1,0.35 L0.682,0.57 L0.793,1 L0.5,0.72 L0.207,1 L0.318,0.57 L0,0.35 L0.383,0.35 Z"></path></clipPath><clipPath id="image-crop-shape-dodecagon" clipPathUnits="objectBoundingBox"><path d="M0.5,0L0.6,0.12L0.74,0.08L0.77,0.22L0.92,0.25L0.88,0.4L1,0.5L0.88,0.6L0.92,0.75L0.77,0.78L0.74,0.92L0.6,0.88L0.5,1L0.4,0.88L0.26,0.92L0.23,0.78L0.08,0.75L0.12,0.6L0,0.5L0.12,0.4L0.08,0.25L0.23,0.22L0.26,0.08L0.4,0.12Z"></path></clipPath><clipPath id="image-crop-shape-heart" clipPathUnits="objectBoundingBox"><path d="M0.524,0.099 C0.62,-0.02,0.79,-0.03,0.91,0.07 C1.02,0.17,1.03,0.35,0.94,0.47 L0.50,1 L0.06,0.47 C-0.03,0.35,-0.02,0.17,0.09,0.07 C0.21,-0.02,0.31,-0.03,0.47,0.10 L0.50,0.13 Z"></path></clipPath></defs></svg></div>
+
+<script>
+  window['__PRELOADED_STATE__'] = {
+  "analytics": {
+    "googleAnalyticsId": "",
+    "googleTagManagerId": ""
+  },
+  "apiUrls": {
+    "static": "https://static.edit.site",
+    "staticService": "https://static-cdn.edit.site",
+    "memberApi": "https://rest.edit.site/member-api/1.1",
+    "blogApi": "https://rest.edit.site/blog-api/1.1",
+    "ecommerceFilestorageService": "https://rest.edit.site/ecommerce-filestorage-service/1.0",
+    "memberApiService": "https://rest.edit.site/member-api-service",
+    "fileStorageService": "https://rest.edit.site/filestorage-api-service",
+    "imageApiService": "https://rest.edit.site/image-api-service",
+    "imageResizeApiService": "https://rest.edit.site/image-resize-v2/_",
+    "ecommerceService": "https://rest.edit.site/ecommerce-api-service",
+    "analyticApiService": "https://rest.edit.site/member-analytics-service",
+    "embedApiService": "https://rest.edit.site/embed-api-service",
+    "geoipService": "https://rest.edit.site/geoip-service",
+    "pageRenderService": "https://rest.edit.site/page-render-service",
+    "staticCdnService": "https://static-gcs.edit.site",
+    "fontsCdn": "https://fonts-cdn.edit.site",
+    "ecomDashApiUrl": "https://app-gateway.svc.ecomdash.com/storedash/checkout/v1.0",
+    "ecomDashCartScriptUrl": "https://mfe.newfold-addons.io",
+    "bookingApiUrl": "https://app-gateway.myschedulr.com/booking/public/v1.0",
+    "bookingService": "https://app.myschedulr.com/bookings-scheduler/index"
+  },
+  "ecommerce": {
+    "storeUrl": ""
+  },
+  "iconsPath": "projects/81ea8e4f-66b3-4d0c-812f-a98a695127b9",
+  "pageId": "2481f5af-663e-4db0-ba6e-c8001bcad62d",
+  "planType": "paid",
+  "projectId": "81ea8e4f-66b3-4d0c-812f-a98a695127b9",
+  "publishAssetsVersion": "0.89.1",
+  "resellerId": "970",
+  "staticData": {
+    "isStaticPublished": false,
+    "staticDir": "https://pentimenti.org/__static",
+    "noSrc": "https://static.edit.site/default.png"
+  },
+  "styles": {
+    "preColor": {
+      "brand": "106, 122, 122",
+      "altBrand": "201, 179, 145",
+      "text": "40, 40, 40",
+      "textAlt": "255, 255, 255",
+      "complementary": "235, 235, 235"
+    },
+    "color": {
+      "brand": "rgb(var(--preColor_brand))",
+      "altBrand": "rgb(var(--preColor_altBrand))",
+      "text": "rgb(var(--preColor_text))",
+      "textAlt": "rgb(var(--preColor_textAlt))",
+      "complementary": "rgb(var(--preColor_complementary))"
+    },
+    "font": {
+      "primary": "Work Sans, sans-serif",
+      "secondary": "Taviraj, serif",
+      "complementary": "PT Sans, serif",
+      "primaryBackup": "none"
+    },
+    "menu": {
+      "type": 1,
+      "fontSize": "16em",
+      "fontWeight": 700,
+      "textTransform": "uppercase",
+      "lineHeight": "38px",
+      "padding": "15px",
+      "color": "rgb(var(--preColor_text))",
+      "fontFamily": "var(--font_secondary)",
+      "fontStyle": "normal",
+      "fontVariant": "normal",
+      "burger": {
+        "color": "rgb(66, 66, 66)"
+      },
+      "active": {
+        "color": "var(--color_brand)",
+        "background": "var(--menu_color)"
+      },
+      "subMenu": {
+        "fontSize": "var(--menu_fontSize)",
+        "background": "var(--header_main_background)",
+        "sm": "var(--menu_subMenu_fontSize)"
+      },
+      "subMenuLink": {
+        "fontSize": "var(--menu_subMenu_fontSize)"
+      }
+    },
+    "template": {
+      "background": "#fff",
+      "fill": "var(--color_brand)",
+      "fontFamily": "var(--font_primary)",
+      "name": "Blank"
+    },
+    "header": {
+      "alwaysCollapsed": false,
+      "main": {
+        "background": "rgb(255, 255, 255)",
+        "borderTopColor": "var(--color_brand)",
+        "borderTopWidth": 0,
+        "borderBottomColor": "var(--color_brand)",
+        "borderBottomWidth": "0px",
+        "opacity": "1.00"
+      },
+      "sub": {
+        "background": "var(--header_main_background)"
+      },
+      "subheader": {
+        "color": {
+          "static": "rgb(var(--preColor_textAlt))",
+          "active": "rgb(var(--preColor_brand))"
+        }
+      },
+      "topbar": {
+        "color": {
+          "static": "rgb(var(--preColor_text))",
+          "active": "rgb(var(--preColor_brand))"
+        }
+      },
+      "fixed": false,
+      "height": 75
+    },
+    "footer": {
+      "main": {
+        "background": "var(--color_altBrand)"
+      },
+      "sub": {
+        "background": "var(--footer_main_background)"
+      }
+    },
+    "logo": {
+      "default": {
+        "isLink": true,
+        "text": "Blank",
+        "src": "/static/088/logo.svg"
+      },
+      "default_footer": {
+        "src": "themes/_global/logo.png"
+      }
+    },
+    "link": {
+      "name": "link_01",
+      "presets": [
+        {
+          "name": "link_01"
+        },
+        {
+          "name": "link_02"
+        },
+        {
+          "name": "link_03"
+        },
+        {
+          "name": "link_04"
+        },
+        {
+          "name": "link_05"
+        }
+      ],
+      "color": "var(--color_brand)",
+      "preColor": "var(--preColor_brand)",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "fontWeight": 400,
+      "borderBottom": "none"
+    },
+    "blockquote1": {
+      "name": "blockquote_01",
+      "default": {
+        "color": "var(--color_text)",
+        "preColor": "var(--preColor_text)",
+        "fontStyle": "italic",
+        "fontSize": "var(--text_fontSize)",
+        "fontFamily": "var(--text_fontFamily)",
+        "fontWeight": 600,
+        "lineHeight": "var(--text_lineHeight)",
+        "background": "transparent",
+        "textTransform": "none",
+        "borderColor": "#cccccc",
+        "textDecoration": "none"
+      },
+      "title": "sh.fi.quote-style_1",
+      "before": {
+        "color": "var(--color_text)"
+      }
+    },
+    "blockquote2": {
+      "name": "blockquote_02",
+      "default": {
+        "color": "var(--color_text)",
+        "preColor": "var(--preColor_text)",
+        "fontStyle": "italic",
+        "fontSize": "var(--text_fontSize)",
+        "fontFamily": "var(--text_fontFamily)",
+        "fontWeight": 600,
+        "lineHeight": "var(--text_lineHeight)",
+        "background": "transparent",
+        "textTransform": "none",
+        "borderColor": "#cccccc",
+        "textDecoration": "none"
+      },
+      "title": "sh.fi.quote-style_2",
+      "before": {
+        "color": "var(--color_text)"
+      }
+    },
+    "text": {
+      "fontSize": "15em",
+      "lineHeight": "1.7em",
+      "fontWeight": 400,
+      "fontStyle": "normal",
+      "fontVariant": "normal",
+      "fontFamily": "var(--font_primary)",
+      "textTransform": "none",
+      "textAlign": "left",
+      "color": "var(--color_text)"
+    },
+    "title": {
+      "lineHeight": "1.4em",
+      "fontStyle": "normal",
+      "fontWeight": 700,
+      "fontVariant": "normal",
+      "textTransform": "none",
+      "textAlign": "left",
+      "color": "var(--color_text)",
+      "heroHeading": {
+        "fontSize": "62em",
+        "lineHeight": "1em",
+        "fontWeight": "500",
+        "fontStyle": "normal",
+        "fontVariant": "var(--title_fontVariant)",
+        "fontFamily": "var(--font_secondary)",
+        "textTransform": "var(--title_textTransform)",
+        "textAlign": "var(--title_textAlign)",
+        "color": "var(--title_color)"
+      },
+      "mainHeading": {
+        "fontSize": "36em",
+        "lineHeight": "1.2em",
+        "fontWeight": "500",
+        "fontStyle": "normal",
+        "fontVariant": "var(--title_fontVariant)",
+        "fontFamily": "var(--font_secondary)",
+        "textTransform": "var(--title_textTransform)",
+        "textAlign": "var(--title_textAlign)",
+        "color": "var(--title_color)"
+      },
+      "heading": {
+        "fontSize": "32em",
+        "lineHeight": "1.3em",
+        "fontWeight": "500",
+        "fontStyle": "normal",
+        "fontVariant": "var(--title_fontVariant)",
+        "fontFamily": "var(--font_secondary)",
+        "textTransform": "var(--title_textTransform)",
+        "textAlign": "var(--title_textAlign)",
+        "color": "var(--title_color)"
+      },
+      "smallHeading": {
+        "fontSize": "22em",
+        "lineHeight": "1.3em",
+        "fontWeight": "500",
+        "fontStyle": "normal",
+        "fontVariant": "var(--title_fontVariant)",
+        "fontFamily": "var(--font_secondary)",
+        "textTransform": "var(--title_textTransform)",
+        "textAlign": "var(--title_textAlign)",
+        "color": "var(--title_color)"
+      },
+      "subHeading": {
+        "fontSize": "16em",
+        "lineHeight": "1.4em",
+        "fontWeight": "600",
+        "fontStyle": "normal",
+        "fontVariant": "var(--title_fontVariant)",
+        "fontFamily": "var(--font_secondary)",
+        "textTransform": "var(--title_textTransform)",
+        "textAlign": "var(--title_textAlign)",
+        "color": "var(--title_color)"
+      }
+    },
+    "btn": {
+      "fontSize": "16px",
+      "fontFamily": "var(--font_secondary)",
+      "borderRadius": 0,
+      "border": 0,
+      "textTransform": "uppercase",
+      "fontWeight": 700,
+      "fontStyle": "normal",
+      "fill": "currentColor",
+      "primary": {
+        "fill": "var(--btn_fill)",
+        "fontSize": "var(--btn_fontSize)",
+        "fontFamily": "var(--btn_fontFamily)",
+        "textTransform": "var(--btn_textTransform)",
+        "fontWeight": 400,
+        "fontStyle": "var(--btn_fontStyle)",
+        "borderRadius": "4px",
+        "borderWidth": "0px",
+        "borderColor": "transparent",
+        "background": "var(--color_brand)",
+        "color": "rgb(var(--preColor_textAlt))",
+        "fontVariant": "var(--btn_fontVariant)",
+        "hoverEffectsEnabled": true,
+        "hoverEffectsValue": "effect-fade-out",
+        "textDecoration": "none"
+      },
+      "secondary": {
+        "fill": "var(--btn_fill)",
+        "fontSize": "var(--btn_fontSize)",
+        "fontFamily": "var(--btn_fontFamily)",
+        "textTransform": "var(--btn_textTransform)",
+        "fontWeight": 400,
+        "fontStyle": "var(--btn_fontStyle)",
+        "borderRadius": "4px",
+        "borderWidth": "0px",
+        "borderColor": "transparent",
+        "background": "var(--color_altBrand)",
+        "color": "rgb(var(--preColor_textAlt))",
+        "fontVariant": "var(--btn_fontVariant)",
+        "hoverEffectsEnabled": true,
+        "hoverEffectsValue": "effect-fade-out",
+        "textDecoration": "none"
+      },
+      "borderPrimary": {
+        "fill": "var(--btn_fill)",
+        "background": "transparent",
+        "fontSize": "var(--btn_fontSize)",
+        "fontFamily": "var(--btn_fontFamily)",
+        "borderRadius": "4px",
+        "textTransform": "var(--btn_textTransform)",
+        "fontWeight": 400,
+        "fontStyle": "var(--btn_fontStyle)",
+        "borderStyle": "solid",
+        "borderWidth": "2px",
+        "color": "rgb(51, 167, 255)",
+        "borderColor": "var(--color_brand)",
+        "fontVariant": "var(--btn_fontVariant)",
+        "hoverEffectsEnabled": true,
+        "hoverEffectsValue": "effect-fade-out",
+        "textDecoration": "none",
+        "paddingTop": "4px",
+        "paddingBottom": "4px"
+      },
+      "borderSecondary": {
+        "fill": "var(--btn_fill)",
+        "background": "transparent",
+        "fontSize": "var(--btn_fontSize)",
+        "fontFamily": "var(--btn_fontFamily)",
+        "borderRadius": "4px",
+        "textTransform": "var(--btn_textTransform)",
+        "fontWeight": 400,
+        "fontStyle": "var(--btn_fontStyle)",
+        "borderStyle": "solid",
+        "borderWidth": "2px",
+        "color": "rgb(var(--preColor_textAlt))",
+        "borderColor": "rgb(var(--preColor_textAlt))",
+        "fontVariant": "var(--btn_fontVariant)",
+        "hoverEffectsEnabled": true,
+        "hoverEffectsValue": "effect-fade-out",
+        "textDecoration": "none",
+        "paddingTop": "4px",
+        "paddingBottom": "4px"
+      },
+      "default": {
+        "fill": "var(--btn_fill)",
+        "paddingTop": "6px",
+        "paddingBottom": "6px",
+        "fontSize": "var(--btn_fontSize)",
+        "fontFamily": "var(--btn_fontFamily)",
+        "textTransform": "var(--btn_textTransform)",
+        "fontWeight": "var(--btn_fontWeight)",
+        "fontStyle": "var(--btn_fontStyle)",
+        "borderRadius": "0",
+        "borderWidth": "0",
+        "borderColor": "transparent",
+        "background": "transparent",
+        "color": "var(--color_brand)",
+        "fontVariant": "var(--btn_fontVariant)",
+        "hoverEffectsEnabled": true,
+        "hoverEffectsValue": "effect-fade-out",
+        "textDecoration": "none"
+      }
+    },
+    "input": {
+      "fontSize": "var(--text_fontSize)",
+      "height": "auto",
+      "color": "var(--text_color)",
+      "preBgColor": "255, 255, 255",
+      "background": "rgb(var(--input_preBgColor))",
+      "borderWidth": "1px",
+      "borderColor": "#cccccc",
+      "borderRadius": 0,
+      "textTransform": "none",
+      "textarea": {
+        "fontSize": "var(--input_fontSize)",
+        "height": "140px",
+        "color": "var(--input_color)",
+        "background": "var(--input_background)",
+        "borderWidth": "var(--input_borderWidth)",
+        "borderColor": "var(--input_borderColor)",
+        "borderRadius": "var(--input_borderRadius)",
+        "textTransform": "var(--input_textTransform)"
+      },
+      "select": {
+        "fontSize": "var(--input_fontSize)",
+        "height": "var(--input_height)",
+        "color": "var(--input_color)",
+        "background": "var(--input_background)",
+        "borderWidth": "var(--input_borderWidth)",
+        "borderColor": "var(--input_borderColor)",
+        "borderRadius": "var(--input_borderRadius)",
+        "textTransform": "var(--input_textTransform)"
+      },
+      "radio": {
+        "fontSize": "var(--input_fontSize)",
+        "color": "var(--input_color)",
+        "borderColor": "var(--input_borderColor)",
+        "textTransform": "var(--input_textTransform)"
+      }
+    },
+    "divider": {
+      "solid": {
+        "align": "left",
+        "color": "var(--color_text)",
+        "width": "100"
+      },
+      "dashed": {
+        "align": "left",
+        "color": "var(--color_text)",
+        "width": "100"
+      },
+      "dotted": {
+        "align": "left",
+        "color": "var(--color_text)",
+        "width": "100"
+      },
+      "dots": {
+        "align": "left",
+        "color": "var(--color_text)",
+        "width": "100"
+      },
+      "slant": {
+        "align": "left",
+        "color": "var(--color_text)",
+        "width": "100"
+      },
+      "waves": {
+        "align": "left",
+        "color": "var(--color_text)",
+        "width": "100"
+      },
+      "dash": {
+        "align": "left",
+        "color": "var(--color_text)",
+        "width": "100"
+      },
+      "zigzag": {
+        "align": "left",
+        "color": "var(--color_text)",
+        "width": "100"
+      },
+      "default": "solid"
+    },
+    "function": {
+      "darkenBrand": [
+        10,
+        15,
+        50
+      ],
+      "rgbaBrand": [
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "link": {
+        "rgba": [
+          1,
+          2
+        ]
+      },
+      "button": {
+        "primary": {
+          "darken": [
+            10,
+            15
+          ]
+        },
+        "secondary": {
+          "darken": [
+            10,
+            15
+          ]
+        },
+        "borderPrimary": {
+          "darken": [
+            10,
+            15
+          ]
+        },
+        "borderSecondary": {
+          "darken": [
+            10,
+            15
+          ]
+        }
+      }
+    },
+    "countdown": {
+      "layout": "circles",
+      "circleColor": "var(--color_brand)",
+      "timesUpMessageColor": "var(--color_text)",
+      "number": {
+        "fontWeight": "var(--title_mainHeading_fontWeight)",
+        "fontStyle": "var(--title_mainHeading_fontStyle)",
+        "textTransform": "var(--title_mainHeading_textTransform)",
+        "fontFamily": "var(--title_mainHeading_fontFamily)",
+        "fontVariant": "var(--title_mainHeading_fontVariant)",
+        "fontSize": "var(--title_mainHeading_fontSize)",
+        "lineHeight": "var(--title_mainHeading_lineHeight)",
+        "letterSpacing": 0,
+        "textDecoration": "none",
+        "color": "var(--title_mainHeading_color)"
+      },
+      "caption": {
+        "fontWeight": "var(--title_smallHeading_fontWeight)",
+        "fontStyle": "var(--title_smallHeading_fontStyle)",
+        "textTransform": "var(--title_smallHeading_textTransform)",
+        "fontFamily": "var(--title_smallHeading_fontFamily)",
+        "fontVariant": "var(--title_smallHeading_fontVariant)",
+        "fontSize": "var(--title_smallHeading_fontSize)",
+        "lineHeight": "var(--title_smallHeading_lineHeight)",
+        "letterSpacing": 0,
+        "textDecoration": "none",
+        "color": "var(--title_smallHeading_color)"
+      }
+    },
+    "timeline": {
+      "layout": 1,
+      "align": "center",
+      "shape": "circle",
+      "circleColor": "var(--color_brand)",
+      "lineColor": "rgba(var(--preColor_brand), 0.4)",
+      "date": {
+        "fontWeight": "var(--title_subHeading_fontWeight)",
+        "fontStyle": "var(--title_subHeading_fontStyle)",
+        "textTransform": "var(--title_subHeading_textTransform)",
+        "fontFamily": "var(--title_subHeading_fontFamily)",
+        "fontVariant": "var(--title_subHeading_fontVariant)",
+        "fontSize": "var(--title_subHeading_fontSize)",
+        "lineHeight": "var(--title_subHeading_lineHeight)",
+        "letterSpacing": 0,
+        "textDecoration": "none",
+        "color": "var(--title_subHeading_color)"
+      },
+      "title": {
+        "fontWeight": "var(--title_smallHeading_fontWeight)",
+        "fontStyle": "var(--title_smallHeading_fontStyle)",
+        "textTransform": "var(--title_smallHeading_textTransform)",
+        "fontFamily": "var(--title_smallHeading_fontFamily)",
+        "fontVariant": "var(--title_smallHeading_fontVariant)",
+        "fontSize": "var(--title_smallHeading_fontSize)",
+        "lineHeight": "var(--title_smallHeading_lineHeight)",
+        "letterSpacing": 0,
+        "textDecoration": "none",
+        "color": "var(--title_smallHeading_color)"
+      },
+      "text": {
+        "fontWeight": "var(--text_fontWeight)",
+        "fontStyle": "var(--text_fontStyle)",
+        "textTransform": "var(--text_textTransform)",
+        "fontFamily": "var(--text_fontFamily)",
+        "fontVariant": "var(--text_fontVariant)",
+        "fontSize": "var(--text_fontSize)",
+        "lineHeight": "var(--text_lineHeight)",
+        "letterSpacing": 0,
+        "textDecoration": "none",
+        "color": "var(--color_text)"
+      }
+    },
+    "templateX": {
+      "paddingTop": 0
+    }
+  },
+  "settings": {
+    "animation": {
+      "enabled": false,
+      "value": "long"
+    },
+    "grid": true,
+    "isEnableWebp": true,
+    "notFoundPageId": "c66f3dc4-5666-43c7-959b-c7ff42b9927f"
+  },
+  "featuresTestMode": false
+};
+</script>
+
+
+
+  <script defer src="https://pentimenti.org/bundle/publish/0.89.1/bundle.js"></script>
+<!-- page-render-new-sp Thu Aug 27 2026 20:50:23 GMT+0000 (Coordinated Universal Time)-->
+<!-- ancestry-corner-nav -->
+<nav id="ancestry-corner-nav" aria-label="Site shortcuts">
+<style>#ancestry-corner-nav{position:fixed;z-index:999;right:20px;bottom:20px;display:flex;flex-direction:column;align-items:flex-end;gap:8px;pointer-events:none}
+#ancestry-corner-nav a{pointer-events:auto;display:flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:4px;background:var(--color_brand,#6a7a7a);color:#fff;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.22);opacity:.92;transition:opacity .2s,filter .2s,transform .15s}
+#ancestry-corner-nav a:hover,#ancestry-corner-nav a:focus-visible{opacity:1;filter:brightness(1.08)}
+#ancestry-corner-nav a:focus-visible{outline:2px solid #f8f5f2;outline-offset:2px}
+body:has(.back-to-top) #ancestry-corner-nav{bottom:80px}
+@media (min-width:568px){#ancestry-corner-nav{right:30px;bottom:30px}body:has(.back-to-top) #ancestry-corner-nav{bottom:90px}}
+@media (min-width:1025px){#ancestry-corner-nav{right:40px;bottom:40px}body:has(.back-to-top) #ancestry-corner-nav{bottom:100px}}
+@media print{#ancestry-corner-nav{display:none!important}}</style>
+  <a href="tree/" title="Tree" aria-label="Tree"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 8h-.2A1 1 0 0 1 8 6.3L12 2l4 4.3a1 1 0 0 1-.8 1.7H15l3 4.3a1 1 0 0 1-.7 1.7H17Z"/><path d="M12 22v-8"/></svg></a>
+</nav>
+<!-- /ancestry-corner-nav -->
 </body>
 </html>
