@@ -859,16 +859,52 @@ body:has(.back-to-top) #ancestry-corner-nav{bottom:80px}
 <!-- /ancestry-corner-nav -->
 
 <script>
-document.addEventListener("click", function (e) {
-  var a = e.target.closest && e.target.closest("a[href]");
-  if (!a) return;
-  var h = a.getAttribute("href") || "";
-  if (h === "tree/" || h === "/tree/" || h === "tree") {
-    e.preventDefault();
-    e.stopImmediatePropagation();
+(function () {
+  function go(e) {
+    if (e) { e.preventDefault(); e.stopImmediatePropagation(); }
     window.location.assign("/tree/");
   }
-}, true);
+  function isTreeHref(h) {
+    h = (h || "").toLowerCase();
+    return h === "tree" || h === "tree/" || h === "/tree" || h === "/tree/" ||
+      h.indexOf("esutcliffe.github.io/ancestry") !== -1;
+  }
+  function isTreeText(el) {
+    var t = ((el && el.textContent) || "").replace(/\s+/g, " ").trim().toUpperCase();
+    return t.indexOf("CLICK TO SEE FAMILY TREE") !== -1;
+  }
+  function fix() {
+    document.querySelectorAll("a[href]").forEach(function (a) {
+      if (isTreeHref(a.getAttribute("href"))) a.setAttribute("href", "/tree/");
+    });
+    document.querySelectorAll("[data-slate-string='true']").forEach(function (span) {
+      if (!isTreeText(span)) return;
+      span.style.cursor = "pointer";
+      span.setAttribute("role", "link");
+    });
+    var box = document.getElementById("ffc07b46-0931-4880-8972-bb194cf9a5ce");
+    if (box) box.style.cursor = "pointer";
+    var a = document.querySelector("#ffc07b46-0931-4880-8972-bb194cf9a5ce a[href]");
+    if (a) {
+      a.setAttribute("href", "/tree/");
+      a.style.minWidth = "100%";
+      a.style.display = "block";
+    }
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[href]");
+    if (a && isTreeHref(a.getAttribute("href"))) return go(e);
+    var slate = e.target.closest && e.target.closest("[data-slate-string='true']");
+    if (isTreeText(e.target) || isTreeText(slate)) return go(e);
+    if (e.target.closest && e.target.closest("#ffc07b46-0931-4880-8972-bb194cf9a5ce, .image-ffc07b46-0931-4880-8972-bb194cf9a5ce")) return go(e);
+  }, true);
+  function run() { fix(); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run);
+  else run();
+  window.addEventListener("load", run);
+  setTimeout(run, 300);
+  setTimeout(run, 1500);
+})();
 </script>
 </body>
 </html>
