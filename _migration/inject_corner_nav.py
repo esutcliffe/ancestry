@@ -101,7 +101,8 @@ def buttons_for(rel: Path) -> list[tuple[str, str, str]]:
 
     buttons: list[tuple[str, str, str]] = []
     if not under_tree:
-        buttons.append(("Tree", f"{prefix}tree/", ICON_TREE))
+        tree_href = "/tree/" if not prefix else f"{prefix}tree/"
+        buttons.append(("Tree", tree_href, ICON_TREE))
     # No Home on root letter or on the tree page (Ernest: remove Home from tree).
     if not is_root and not under_tree:
         home = prefix if prefix else "./"
