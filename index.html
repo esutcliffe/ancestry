@@ -222,10 +222,11 @@
 }
 </style>
 <style id="ancestry-home-panel">
-/* Variant B: translucent tan panel (85% opaque) + backdrop blur so the handwriting faintly shows.
-   rgba(104,92,74,.85): over the lightest background pixel ≈ rgb(116,105,86) -> white 5.4:1; typical ≈ 6.0:1 (WCAG AA). */
+/* Homepage letter panel (option B, colour-matched): biography-page tan rgb(179,147,99).
+   rgba(180,147,97,.93) + blur(6px) composites over the handwriting photo to ~rgb(179,147,99) on average.
+   White text on this tan is ~2.9:1 (same as the bio pages), so a soft text-shadow is added. */
 #s-40ff605b-77f2-4113-8550-8b9477ff9f80 > div > .s-wrapper > .layout > .grid-component--redactor > .section__text{
-  background:rgba(104,92,74,.85);
+  background:rgba(180,147,97,.93);
   -webkit-backdrop-filter:blur(6px);
   backdrop-filter:blur(6px);
   padding:40px 48px;
@@ -236,13 +237,15 @@
   margin:0 auto;
   box-sizing:border-box;
 }
+#s-40ff605b-77f2-4113-8550-8b9477ff9f80 > div > .s-wrapper > .layout > .grid-component--redactor > .section__text .slate__leaf{text-shadow:0 1px 2px rgba(0,0,0,.35);}
 #s-40ff605b-77f2-4113-8550-8b9477ff9f80 .picture__item-container .section__text a[href="/tree/"]{
   display:inline-block;
-  background:rgba(104,92,74,.85);
+  background:rgba(180,147,97,.93);
   -webkit-backdrop-filter:blur(6px);
   backdrop-filter:blur(6px);
   color:#fff!important;
   text-decoration:none;
+  text-shadow:0 1px 2px rgba(0,0,0,.35);
   padding:6px 18px;
   border-radius:999px;
   box-shadow:0 3px 10px rgba(40,28,15,.3);
