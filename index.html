@@ -253,6 +253,17 @@
 @media (max-width:767px){
   #s-40ff605b-77f2-4113-8550-8b9477ff9f80 > div > .s-wrapper > .layout > .grid-component--redactor > .section__text{padding:24px 20px;border-radius:10px;}
 }
+/* Tablet/desktop: the builder sizes the letter's grid cell to the bare text height, so the panel padding
+   pushed the last lines ("With love and pride, OPA") below the panel. Let the panel grow with its content
+   and move the tree image down to make room. Phone (<=767px) is unchanged. */
+@media (min-width:768px){
+  #s-40ff605b-77f2-4113-8550-8b9477ff9f80 > div > .s-wrapper > .layout > .grid-component--redactor > .section__text{height:auto!important;min-height:100%;}
+  #s-40ff605b-77f2-4113-8550-8b9477ff9f80 > div > .s-wrapper > .layout > .grid-component--image{transform:translateY(96px);}
+}
+/* Tablet grid (768-1024px) has no spare rows below the tree, so extend the section by the same amount. */
+@media (min-width:768px) and (max-width:1024px){
+  #s-40ff605b-77f2-4113-8550-8b9477ff9f80 > div > .s-wrapper{padding-bottom:96px;}
+}
 </style>
 </head>
 <body itemProp="mainContentOfPage">
