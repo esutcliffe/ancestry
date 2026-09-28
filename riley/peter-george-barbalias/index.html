@@ -238,6 +238,15 @@ h2.slate__heading.header-two span[data-slate-node="text"],
 h2.slate__heading.header-two .slate__leaf {
   font-size: inherit !important;
 }
+/* Phone/tablet: close empty grid rows 4-9 left above the tagline (H2 placed at row 10, nothing in rows 4-9) */
+@media (max-width: 1024px) {
+  .layout:has(> .grid-component[style*="grid-area: 10 / 1 / 12 / 9"] h2.slate__heading) > .grid-component:not(:has(h1.slate__heading)) {
+    translate: 0 -354px;
+  }
+  .layout:has(> .grid-component[style*="grid-area: 10 / 1 / 12 / 9"] h2.slate__heading) {
+    margin-bottom: -354px;
+  }
+}
 @media (max-width: 567px) {
   h1.slate__heading.header-one {
     font-size: 1.7rem !important;
