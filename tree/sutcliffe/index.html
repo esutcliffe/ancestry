@@ -1,69 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Sutcliffe Branch</title>
-  <link rel="canonical" href="https://pentimenti.org/tree/sutcliffe/" />
-  <style>
-    :root{
-      --card: #f8f5f2;
-      --muted: #5c4a36;
-      --fg: #2c2c2c;
-      --accent: #004466;
-      --line: #4a3c2b;
-      --bar: rgba(255,255,255,0.6);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: #C9B391;
-      color: var(--fg);
-    }
-    .toolbar{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:var(--bar);display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid rgba(0,0,0,.15)}
-    .toolbar .spacer{flex:1}
-    .btn{appearance:none;border:1px solid rgba(0,0,0,.2);background:#fff;color:#333;padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.08)}
-    .btn.toggle.active{background:#e6f3ff;border-color:#99c2ff}
-    .wrap{max-width:1800px;margin:24px auto;padding:0 16px;position:relative}
-    header{text-align:center;margin-bottom:18px}
-    header h1{margin:0 0 4px;font-size:28px;color:var(--fg)}
-    header p{margin:0;color:var(--muted);font-size:14px}
-    .tree{display:flex;justify-content:center;align-items:center;gap:48px;position:relative}
-    .branch{display:flex;flex-direction:row;align-items:flex-start;gap:36px;position:relative;margin-top:60px}
-    .generation{display:flex;flex-direction:column;gap:14px;position:relative;min-width:220px;justify-content:center}
-    #l-ggp,#r-ggp{margin-top:80px;}
-    .label{font-size:13px;font-weight:600;color:var(--muted);text-align:center;margin-bottom:6px}
-    .person{padding:10px 12px;background:var(--card);border-radius:14px;border:1px solid rgba(44,44,44,0.25);box-shadow:0 6px 12px rgba(0,0,0,.15);text-align:center;position:relative}
-    .person a{color:var(--fg);text-decoration:none;font-weight:600}
-    .person a:hover{color:var(--accent);text-decoration:underline}
-    .person .nopage{color:var(--fg);font-weight:600}
-    .wires{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
-    .wire{fill:none;stroke:var(--line);stroke-width:2}
-    .junction{fill:var(--accent);stroke:none}
-    .divider{border:0;height:2px;max-width:1820px;margin:36px auto;background:linear-gradient(90deg,transparent,rgba(74,60,43,0.6),transparent)}
-    .hidden{display:none!important}
-    @media(max-width:980px){.generation{min-width:200px}}
-    @media(max-width:860px){.tree{flex-direction:column;align-items:stretch}.branch{flex-direction:column}.generation{min-width:auto}.toolbar{flex-wrap:wrap}}
-    @media print{body{background:#fff;color:#000}.toolbar{display:none!important}.person{background:#fff;border-color:#bbb;box-shadow:none}.wire{stroke:#888}.junction{fill:#888}.divider{margin:18px auto}}
-  
-    @media print{@page{size:landscape;margin:10mm}.wrap{margin:0 auto;padding:0}header{margin-bottom:6px}.tree{flex-direction:row!important;align-items:center!important;gap:22px!important}.branch{flex-direction:row!important;gap:18px!important;margin-top:30px!important}.generation{min-width:0!important;width:172px;gap:9px!important}#l-ggp,#r-ggp{margin-top:40px!important}.person{padding:7px 8px;font-size:12px;border-radius:10px}.label{font-size:10.5px}}
-  </style>
-</head>
-<body>
-  <div class="toolbar">
-    <div class="spacer"></div>
-    <button class="btn" id="print-btn">Print…</button>
-  </div>
-
-  <div class="wrap" id="section-branch">
-    <header>
-      <h1>The Sutcliffe Branch</h1>
-      <p>Ernest and Candace in center • Sutcliffe line to the left • Hansen line to the right</p>
-    </header>
-    <svg class="wires" id="wires-1" aria-hidden="true"></svg>
-    <div class="tree" id="tree">
-      <div class="branch" id="l-branch">
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Sutcliffe Family</title>
+    <link rel="canonical" href="https://pentimenti.org/tree/sutcliffe/" />
+    <style>
+      :root{--ivory:#f5efdf;--paper:#fbf7ea;--green:#1f4a3a;--green-2:#2f6450;--ink:#22302a;--muted:#4c5f55}
+      *{box-sizing:border-box}
+      body{margin:0;background:#e9e1cb;color:var(--ink);font-family:'Palatino Linotype','Book Antiqua',Palatino,'URW Palladio L','P052',Georgia,serif}
+      .toolbar{position:sticky;top:0;z-index:10;display:flex;justify-content:flex-end;padding:10px 16px;background:rgba(245,239,223,.85);border-bottom:1px solid rgba(31,74,58,.25)}
+      .btn{appearance:none;border:1px solid var(--green);background:var(--paper);color:var(--green);padding:7px 14px;border-radius:3px;font:600 14px/1 inherit;font-family:inherit;letter-spacing:.04em;cursor:pointer}
+      .sheet{max-width:1400px;margin:28px auto;padding:0 20px}
+      .frame{position:relative;background:var(--ivory);border:6px solid var(--green);outline:1px solid var(--green);outline-offset:5px;padding:14px;margin:6px}
+      .frame-inner{position:relative;border:1px solid var(--green);padding:6px}
+      .frame-core{position:relative;border:3px double var(--green);padding:26px 70px 104px;
+         background:radial-gradient(ellipse at 50% 20%,rgba(255,255,255,.55),transparent 60%),var(--ivory)}
+      .rule{position:absolute;left:0;right:0;height:10px;background:repeating-linear-gradient(90deg,var(--green) 0 1px,transparent 1px 7px);opacity:.35}
+      .rule.top{top:-12px} .rule.bottom{bottom:-12px}
+      .corner{position:absolute;width:96px;height:96px;color:var(--green);pointer-events:none}
+      .corner svg{width:100%;height:100%;display:block}
+      .c-tl{top:4px;left:4px} .c-tr{top:4px;right:4px;transform:scaleX(-1)} .c-bl{bottom:4px;left:4px;transform:scaleY(-1)} .c-br{bottom:4px;right:4px;transform:scale(-1,-1)}
+      header{text-align:center;margin-bottom:8px}
+      .crest{width:116px;height:116px;color:var(--green);display:block;margin:0 auto 6px}
+      header h1{margin:0;font-weight:400;font-size:44px;letter-spacing:.06em;color:var(--green)}
+      .flourish{display:flex;align-items:center;justify-content:center;gap:12px;margin:8px auto 6px;color:var(--green)}
+      .flourish span{display:block;width:120px;height:1px;background:var(--green)}
+      .flourish i{width:7px;height:7px;transform:rotate(45deg);border:1px solid var(--green);display:block}
+      header p{margin:0;color:var(--muted);font-variant:small-caps;letter-spacing:.08em;font-size:16px}
+      .wrap{position:relative}
+      .tree{display:flex;justify-content:center;align-items:center;gap:44px;position:relative}
+      .branch{display:flex;flex-direction:row;align-items:flex-start;gap:34px;position:relative;margin-top:50px}
+      .generation{display:flex;flex-direction:column;gap:14px;position:relative;min-width:200px;justify-content:center}
+      #l-ggp,#r-ggp{margin-top:80px}
+      .label{font-size:12.5px;font-variant:small-caps;letter-spacing:.1em;color:var(--green-2);text-align:center;margin-bottom:6px;border-bottom:1px solid rgba(31,74,58,.35);padding-bottom:3px}
+      .person{padding:9px 12px;background:var(--paper);border:1px solid var(--green);border-radius:3px;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px rgba(31,74,58,.28);text-align:center;position:relative;font-size:16px;line-height:1.3}
+      .person a{color:var(--ink);text-decoration:none;font-weight:600}
+      .person a:hover{color:var(--green);text-decoration:underline}
+      .wires{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+      .wire{fill:none;stroke:var(--green);stroke-width:1.6}
+      .junction{fill:var(--green);stroke:var(--paper);stroke-width:1.5}
+      .footnote{text-align:center;margin-top:34px;font-size:13px;color:var(--muted);font-style:italic;letter-spacing:.03em}
+      @media(max-width:1180px){.generation{min-width:170px}.person{font-size:15px}.tree{gap:28px}.branch{gap:22px}}
+      @media screen and (max-width:860px){
+        .toolbar{padding:8px 12px}
+        .sheet{margin:10px auto 16px;padding:0 8px}
+        .frame{border-width:3px;outline:none;padding:4px;margin:0}
+        .frame-inner{border:none;padding:0}
+        .frame-core{border:1px solid var(--green);padding:16px 12px 18px}
+        .corner,.rule,.wires{display:none}
+        .crest{width:70px;height:70px;margin-bottom:4px}
+        header{margin-bottom:4px}
+        header h1{font-size:29px;letter-spacing:.03em}
+        .flourish{margin:6px auto 4px}.flourish span{width:56px}
+        header p{display:none}
+        header{margin-bottom:12px}
+        .tree{flex-direction:column;align-items:stretch;gap:14px}
+        #center-parents{order:-1}
+        .branch{flex-direction:column;align-items:stretch;gap:10px;margin-top:0;border-top:1px solid rgba(31,74,58,.35);padding-top:10px}
+        #l-branch{flex-direction:column-reverse}
+        .branch::before{content:attr(data-line);display:block;text-align:center;font-variant:small-caps;letter-spacing:.12em;font-size:15px;color:var(--green);order:-1}
+        #l-branch::before{order:9}
+        .generation,#l-ggp,#r-ggp{display:grid;grid-template-columns:1fr 1fr;gap:8px;min-width:0;margin-top:0}
+        .generation .label{grid-column:1/-1;margin-bottom:0}
+        .person{font-size:14px;padding:7px 6px;display:flex;align-items:center;justify-content:center;min-height:52px}
+      }
+      @media print{@page{size:landscape;margin:8mm}
+        body{background:#fff}.toolbar{display:none!important}.sheet{margin:0;padding:0;max-width:none}
+        .frame,.frame-core{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+        .frame-core{padding:14px 56px 50px}.frame{border-width:5px;outline-offset:4px;padding:10px;margin:5px}.crest{width:80px;height:80px}header h1{font-size:32px}
+        .tree{flex-direction:row!important;align-items:center!important;gap:18px!important}.branch{flex-direction:row!important;gap:14px!important;margin-top:24px!important}
+        .generation{min-width:0!important;width:142px;gap:9px!important}#l-ggp,#r-ggp{margin-top:36px!important}
+        .person{padding:5px 6px;font-size:11.5px}.label{font-size:10px}.footnote{margin-top:14px;font-size:10px}
+        .corner{width:70px;height:70px}}
+    </style>
+    </head>
+    <body>
+      <div class="toolbar"><button class="btn" id="print-btn">Print…</button></div>
+      <div class="sheet">
+       <div class="frame">
+        <div class="frame-inner">
+         <div class="frame-core">
+          <div class="rule top"></div><div class="rule bottom"></div>
+          <div class="corner c-tl"><svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round">
+    <path d="M6 114V30Q6 6 30 6h84" stroke-width="2.2"/><path d="M14 114V36Q14 14 36 14h78" stroke-width="1"/>
+    <path d="M24 60Q24 24 60 24" stroke-width="1"/><path d="M30 90Q34 50 50 40T90 30" stroke-width="0.9"/>
+    <circle cx="30" cy="30" r="7" stroke-width="1.4"/><circle cx="30" cy="30" r="2.6" fill="currentColor" stroke="none"/>
+    <path d="M44 30q8-10 16 0q-8 10-16 0z" stroke-width="1"/><path d="M30 44q10 8 0 16q-10-8 0-16z" stroke-width="1"/>
+    <path d="M68 14q6 6 12 0M88 14q6 6 12 0M14 68q6 6 0 12M14 88q6 6 0 12" stroke-width="0.9"/></g></svg></div><div class="corner c-tr"><svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round">
+    <path d="M6 114V30Q6 6 30 6h84" stroke-width="2.2"/><path d="M14 114V36Q14 14 36 14h78" stroke-width="1"/>
+    <path d="M24 60Q24 24 60 24" stroke-width="1"/><path d="M30 90Q34 50 50 40T90 30" stroke-width="0.9"/>
+    <circle cx="30" cy="30" r="7" stroke-width="1.4"/><circle cx="30" cy="30" r="2.6" fill="currentColor" stroke="none"/>
+    <path d="M44 30q8-10 16 0q-8 10-16 0z" stroke-width="1"/><path d="M30 44q10 8 0 16q-10-8 0-16z" stroke-width="1"/>
+    <path d="M68 14q6 6 12 0M88 14q6 6 12 0M14 68q6 6 0 12M14 88q6 6 0 12" stroke-width="0.9"/></g></svg></div><div class="corner c-bl"><svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round">
+    <path d="M6 114V30Q6 6 30 6h84" stroke-width="2.2"/><path d="M14 114V36Q14 14 36 14h78" stroke-width="1"/>
+    <path d="M24 60Q24 24 60 24" stroke-width="1"/><path d="M30 90Q34 50 50 40T90 30" stroke-width="0.9"/>
+    <circle cx="30" cy="30" r="7" stroke-width="1.4"/><circle cx="30" cy="30" r="2.6" fill="currentColor" stroke="none"/>
+    <path d="M44 30q8-10 16 0q-8 10-16 0z" stroke-width="1"/><path d="M30 44q10 8 0 16q-10-8 0-16z" stroke-width="1"/>
+    <path d="M68 14q6 6 12 0M88 14q6 6 12 0M14 68q6 6 0 12M14 88q6 6 0 12" stroke-width="0.9"/></g></svg></div><div class="corner c-br"><svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round">
+    <path d="M6 114V30Q6 6 30 6h84" stroke-width="2.2"/><path d="M14 114V36Q14 14 36 14h78" stroke-width="1"/>
+    <path d="M24 60Q24 24 60 24" stroke-width="1"/><path d="M30 90Q34 50 50 40T90 30" stroke-width="0.9"/>
+    <circle cx="30" cy="30" r="7" stroke-width="1.4"/><circle cx="30" cy="30" r="2.6" fill="currentColor" stroke="none"/>
+    <path d="M44 30q8-10 16 0q-8 10-16 0z" stroke-width="1"/><path d="M30 44q10 8 0 16q-10-8 0-16z" stroke-width="1"/>
+    <path d="M68 14q6 6 12 0M88 14q6 6 12 0M14 68q6 6 0 12M14 88q6 6 0 12" stroke-width="0.9"/></g></svg></div>
+          <div class="wrap" id="section-branch">
+            <header>
+              <svg class="crest" viewBox="0 0 200 200" role="img" aria-label="Monogram S">
+    <defs><path id="arcTop" d="M30 100a70 70 0 0 1 140 0"/></defs>
+    <g fill="none" stroke="currentColor">
+    <circle cx="100" cy="100" r="92" stroke-width="3"/><circle cx="100" cy="100" r="86" stroke-width="1"/>
+    <circle cx="100" cy="100" r="62" stroke-width="1.6"/><circle cx="100" cy="100" r="57" stroke-width="0.8"/>
+    <g stroke-width="1.1"><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(-120 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(-108 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(-96 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(-84 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(-72 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(-60 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(-48 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(-36 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(-24 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(24 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(36 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(48 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(60 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(72 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(84 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(96 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(108 100 100)"/><path d="M100 22q5 7 0 14q-5-7 0-14z" transform="rotate(120 100 100)"/></g>
+    <path d="M58 160q42 22 84 0" stroke-width="1.2"/></g>
+    <circle cx="100" cy="14" r="3" fill="currentColor"/><circle cx="100" cy="186" r="3" fill="currentColor"/>
+    <text x="100" y="128" text-anchor="middle" font-family="'Palatino Linotype','Book Antiqua',Palatino,'URW Palladio L','P052',Georgia,serif" font-size="84" font-style="italic" fill="currentColor">S</text>
+    </svg>
+              <h1>The Sutcliffe Family</h1>
+              <div class="flourish"><span></span><i></i><span></span></div>
+              <p>Ernest and Candace in center • Sutcliffe line to the left • Hansen line to the right</p>
+            </header>
+            <svg class="wires" id="wires-1" aria-hidden="true"></svg>
+            <div class="tree" id="tree">
+      <div class="branch" id="l-branch" data-line="Sutcliffe line">
         <div class="generation" id="l-gggp">
           <div class="label">Great-Great-Grandparents</div>
           <div class="person" id="l-gggp-1"><a href="/sutcliffe/fred-sutcliffe/">Fred Sutcliffe (1894-1945)</a></div><div class="person" id="l-gggp-2"><a href="/sutcliffe/maude-mildred-hanna/">Maude Mildred Hanna (1895-1946)</a></div><div class="person" id="l-gggp-3"><a href="/sutcliffe/karl-carl-leonard-nilsson-nelson/">Carl Leonard Nelson (1894-1986)</a></div><div class="person" id="l-gggp-4"><a href="/sutcliffe/evelyn-clair-dodge/">Evelyn Clair Dodge (1911-2007)</a></div>
@@ -78,7 +136,7 @@
         <div class="person" id="husband"><a href="/sutcliffe/ernest-albert-sutcliffe-2/">Ernest Albert Sutcliffe (1953)</a></div>
         <div class="person" id="wife"><a href="/sutcliffe/candace-lee-hansen/">Candace Lee Hansen (1954)</a></div>
       </div>
-      <div class="branch" id="r-branch">
+      <div class="branch" id="r-branch" data-line="Hansen line">
         <div class="generation" id="r-ggp">
           <div class="label">Great-Grandparents</div>
           <div class="person" id="r-ggp-1"><a href="/sutcliffe/carl-t-hansen/">Carl Theodor Hansen (1921-2019)</a></div><div class="person" id="r-ggp-2"><a href="/sutcliffe/phyllis-jean-tracy/">Phyllis Jean Tracy (1930-1998)</a></div>
@@ -89,9 +147,12 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <script>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <script>
     const pairs=[['l-gggp-1','l-gggp-2','l-ggp-1','right','left'],['l-gggp-3','l-gggp-4','l-ggp-2','right','left'],['l-ggp-1','l-ggp-2','husband','right','left'],['r-gggp-1','r-gggp-2','r-ggp-1','left','right'],['r-gggp-3','r-gggp-4','r-ggp-2','left','right'],['r-ggp-1','r-ggp-2','wife','left','right']];
     function getAnchor(svgEl,el,side,fy){const r=el.getBoundingClientRect();const s=svgEl.getBoundingClientRect();const x=side==='right'?r.right-s.left:side==='left'?r.left-s.left:(r.left+r.width/2)-s.left;const y=(r.top+r.height*(fy==null?0.5:fy))-s.top;return{x,y}};
     function wire(svgEl,d,arrow){const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);p.setAttribute('class','wire');if(arrow)p.setAttribute('marker-end','url(#arrow)');svgEl.appendChild(p)}
@@ -100,19 +161,6 @@
       pairs.forEach(([p1,p2,child,ps,cs,fy])=>{const a1=getAnchor(svgEl,document.getElementById(p1),ps);const a2=getAnchor(svgEl,document.getElementById(p2),ps);const c=getAnchor(svgEl,document.getElementById(child),cs,fy);const mx=(a1.x+a2.x)/2,my=(a1.y+a2.y)/2;wire(svgEl,`M ${a1.x} ${a1.y} L ${mx} ${my}`);wire(svgEl,`M ${a2.x} ${a2.y} L ${mx} ${my}`);dot(svgEl,mx,my);wire(svgEl,`M ${mx} ${my} L ${c.x} ${c.y}`,true)});}
     window.addEventListener('load',()=>{document.getElementById('print-btn').addEventListener('click',()=>{drawAll();window.print()});drawAll()});window.addEventListener('resize',()=>requestAnimationFrame(drawAll));window.addEventListener('beforeprint',drawAll);window.addEventListener('afterprint',drawAll);const mq=window.matchMedia('print');(mq.addEventListener?mq.addEventListener('change',drawAll):mq.addListener(drawAll));
   </script>
-<!-- ancestry-corner-nav -->
-<nav id="ancestry-corner-nav" aria-label="Site shortcuts">
-<style>#ancestry-corner-nav{position:fixed;z-index:999;right:20px;bottom:20px;display:flex;flex-direction:column;align-items:flex-end;gap:8px;pointer-events:none}
-#ancestry-corner-nav a{pointer-events:auto;display:flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:4px;background:var(--color_brand,#6a7a7a);color:#fff;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.22);opacity:.92;transition:opacity .2s,filter .2s,transform .15s}
-#ancestry-corner-nav a:hover,#ancestry-corner-nav a:focus-visible{opacity:1;filter:brightness(1.08)}
-#ancestry-corner-nav a:focus-visible{outline:2px solid #f8f5f2;outline-offset:2px}
-body:has(.back-to-top) #ancestry-corner-nav{bottom:80px}
-@media (min-width:568px){#ancestry-corner-nav{right:30px;bottom:30px}body:has(.back-to-top) #ancestry-corner-nav{bottom:90px}}
-@media (min-width:1025px){#ancestry-corner-nav{right:40px;bottom:40px}body:has(.back-to-top) #ancestry-corner-nav{bottom:100px}}
-@media print{#ancestry-corner-nav{display:none!important}}</style>
-  <a href="/tree/" title="Tree" aria-label="Tree"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 8h-.2A1 1 0 0 1 8 6.3L12 2l4 4.3a1 1 0 0 1-.8 1.7H15l3 4.3a1 1 0 0 1-.7 1.7H17Z"/><path d="M12 22v-8"/></svg></a>
-  <a href="/" title="Home" aria-label="Home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></a>
-</nav>
-<!-- /ancestry-corner-nav -->
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "833d1aca717d4b46b128b7ee3c1f7aa6"}'></script><!-- End Cloudflare Web Analytics --></body>
-</html>
+    <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "833d1aca717d4b46b128b7ee3c1f7aa6"}'></script><!-- End Cloudflare Web Analytics --></body>
+    </html>
+    
