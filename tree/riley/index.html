@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Riley Branch</title>
+  <link rel="canonical" href="https://pentimenti.org/tree/riley/" />
+  <style>
+    :root{
+      --card: #f8f5f2;
+      --muted: #5c4a36;
+      --fg: #2c2c2c;
+      --accent: #004466;
+      --line: #4a3c2b;
+      --bar: rgba(255,255,255,0.6);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: #C9B391;
+      color: var(--fg);
+    }
+    .toolbar{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:var(--bar);display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid rgba(0,0,0,.15)}
+    .toolbar .spacer{flex:1}
+    .btn{appearance:none;border:1px solid rgba(0,0,0,.2);background:#fff;color:#333;padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+    .btn.toggle.active{background:#e6f3ff;border-color:#99c2ff}
+    .wrap{max-width:1800px;margin:24px auto;padding:0 16px;position:relative}
+    header{text-align:center;margin-bottom:18px}
+    header h1{margin:0 0 4px;font-size:28px;color:var(--fg)}
+    header p{margin:0;color:var(--muted);font-size:14px}
+    .tree{display:flex;justify-content:center;align-items:center;gap:48px;position:relative}
+    .branch{display:flex;flex-direction:row;align-items:flex-start;gap:36px;position:relative;margin-top:60px}
+    .generation{display:flex;flex-direction:column;gap:14px;position:relative;min-width:220px;justify-content:center}
+    #l-ggp,#r-ggp{margin-top:80px;}
+    .label{font-size:13px;font-weight:600;color:var(--muted);text-align:center;margin-bottom:6px}
+    .person{padding:10px 12px;background:var(--card);border-radius:14px;border:1px solid rgba(44,44,44,0.25);box-shadow:0 6px 12px rgba(0,0,0,.15);text-align:center;position:relative}
+    .person a{color:var(--fg);text-decoration:none;font-weight:600}
+    .person a:hover{color:var(--accent);text-decoration:underline}
+    .person .nopage{color:var(--fg);font-weight:600}
+    .wires{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+    .wire{fill:none;stroke:var(--line);stroke-width:2}
+    .junction{fill:var(--accent);stroke:none}
+    .divider{border:0;height:2px;max-width:1820px;margin:36px auto;background:linear-gradient(90deg,transparent,rgba(74,60,43,0.6),transparent)}
+    .hidden{display:none!important}
+    @media(max-width:980px){.generation{min-width:200px}}
+    @media(max-width:860px){.tree{flex-direction:column;align-items:stretch}.branch{flex-direction:column}.generation{min-width:auto}.toolbar{flex-wrap:wrap}}
+    @media print{body{background:#fff;color:#000}.toolbar{display:none!important}.person{background:#fff;border-color:#bbb;box-shadow:none}.wire{stroke:#888}.junction{fill:#888}.divider{margin:18px auto}}
+  
+    @media print{@page{size:landscape;margin:10mm}.wrap{margin:0 auto}}
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div class="spacer"></div>
+    <button class="btn" id="print-btn">Print…</button>
+  </div>
+
+  <div class="wrap" id="section-branch">
+    <header>
+      <h1>The Riley Branch</h1>
+      <p>Michael and Maria in center • Riley line to the left • Barbalias line to the right</p>
+    </header>
+    <svg class="wires" id="wires-1" aria-hidden="true"></svg>
+    <div class="tree" id="tree">
+      <div class="branch" id="l-branch">
+        <div class="generation" id="l-gggp">
+          <div class="label">Great-Great-Grandparents</div>
+          <div class="person" id="l-gggp-1"><a href="/riley/harris-henry-riley/">Harris Henry Riley (1903-1960)</a></div><div class="person" id="l-gggp-2"><a href="/riley/loretta-eleanor-boyle/">Loretta Eleanor Boyle (1905-1935)</a></div><div class="person" id="l-gggp-3"><a href="/riley/edward-j-cummings/">Edward Joseph Cummings (1894-1935)</a></div><div class="person" id="l-gggp-4"><a href="/riley/mary-g-cullen/">Mary Genevieve Cullen (1894-1987)</a></div>
+        </div>
+        <div class="generation" id="l-ggp">
+          <div class="label">Great-Grandparents</div>
+          <div class="person" id="l-ggp-1"><a href="/riley/john-william-riley/">John W. Riley (1927-1997)</a></div><div class="person" id="l-ggp-2"><a href="/riley/marion-l-cummings/">Marion Loretta Cummings (1928-2004)</a></div>
+        </div>
+      </div>
+      <div class="generation" id="center-parents">
+        <div class="label">Parents &amp; Grandparents</div>
+        <div class="person" id="husband"><a href="/riley/michael-henry-riley/">Michael Henry Riley (1960)</a></div>
+        <div class="person" id="wife"><a href="/riley/maria-a-barbalias/">Maria A Barbalias (1962)</a></div>
+        <div class="person" id="child-1"><a href="/riley/anthony-james-riley/">Anthony James Riley (1988)</a></div>
+      </div>
+      <div class="branch" id="r-branch">
+        <div class="generation" id="r-ggp">
+          <div class="label">Great-Grandparents</div>
+          <div class="person" id="r-ggp-1"><a href="/riley/james-peter-barbalias/">James Peter Barbalias (1934-2023)</a></div><div class="person" id="r-ggp-2"><a href="/riley/aphrodite-madamas/">Aphrodite Madamas (1931-2025)</a></div>
+        </div>
+        <div class="generation" id="r-gggp">
+          <div class="label">Great-Great-Grandparents</div>
+          <div class="person" id="r-gggp-1"><a href="/riley/peter-george-barbalias/">Peter George Barbalias (1889-1969)</a></div><div class="person" id="r-gggp-2"><a href="/riley/virginia-meniates/">Virginia Meniates (1899-1976)</a></div><div class="person" id="r-gggp-3"><a href="/riley/peter-n-madamas/">Peter N Madamas (1890-1949)</a></div><div class="person" id="r-gggp-4"><a href="/riley/mary-strattos/">Mary Strattos (1899-1979)</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const pairs=[['l-gggp-1','l-gggp-2','l-ggp-1','right','left'],['l-gggp-3','l-gggp-4','l-ggp-2','right','left'],['l-ggp-1','l-ggp-2','husband','right','left'],['r-gggp-1','r-gggp-2','r-ggp-1','left','right'],['r-gggp-3','r-gggp-4','r-ggp-2','left','right'],['r-ggp-1','r-ggp-2','wife','left','right',0.72]];const kids=['child-1'];
+    function getAnchor(svgEl,el,side,fy){const r=el.getBoundingClientRect();const s=svgEl.getBoundingClientRect();const x=side==='right'?r.right-s.left:side==='left'?r.left-s.left:(r.left+r.width/2)-s.left;const y=(r.top+r.height*(fy==null?0.5:fy))-s.top;return{x,y}};
+    function wire(svgEl,d,arrow){const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);p.setAttribute('class','wire');if(arrow)p.setAttribute('marker-end','url(#arrow)');svgEl.appendChild(p)}
+    function dot(svgEl,x,y){const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',4);c.setAttribute('class','junction');svgEl.appendChild(c)}
+    function drawAll(){const svgEl=document.getElementById('wires-1');const box=svgEl.getBoundingClientRect();svgEl.setAttribute('viewBox',`0 0 ${box.width} ${box.height}`);Array.from(svgEl.querySelectorAll('path,circle')).forEach(n=>n.remove());
+      pairs.forEach(([p1,p2,child,ps,cs,fy])=>{const a1=getAnchor(svgEl,document.getElementById(p1),ps);const a2=getAnchor(svgEl,document.getElementById(p2),ps);const c=getAnchor(svgEl,document.getElementById(child),cs,fy);const mx=(a1.x+a2.x)/2,my=(a1.y+a2.y)/2;wire(svgEl,`M ${a1.x} ${a1.y} L ${mx} ${my}`);wire(svgEl,`M ${a2.x} ${a2.y} L ${mx} ${my}`);dot(svgEl,mx,my);wire(svgEl,`M ${mx} ${my} L ${c.x} ${c.y}`,true)});
+      const h=getAnchor(svgEl,document.getElementById('husband'),'right',0.5);const w=getAnchor(svgEl,document.getElementById('wife'),'right',0.22);const ox=Math.max(h.x,w.x)+14;const mx=ox,my=(h.y+w.y)/2;
+      wire(svgEl,`M ${h.x} ${h.y} L ${mx} ${my}`);wire(svgEl,`M ${w.x} ${w.y} L ${mx} ${my}`);dot(svgEl,mx,my);
+      kids.forEach(k=>{const c=getAnchor(svgEl,document.getElementById(k),'right');wire(svgEl,`M ${mx} ${my} L ${c.x} ${c.y}`,true)})}
+    window.addEventListener('load',()=>{document.getElementById('print-btn').addEventListener('click',()=>{drawAll();window.print()});drawAll()});window.addEventListener('resize',()=>requestAnimationFrame(drawAll));window.addEventListener('beforeprint',drawAll);window.addEventListener('afterprint',drawAll);
+  </script>
+<!-- ancestry-corner-nav -->
+<nav id="ancestry-corner-nav" aria-label="Site shortcuts">
+<style>#ancestry-corner-nav{position:fixed;z-index:999;right:20px;bottom:20px;display:flex;flex-direction:column;align-items:flex-end;gap:8px;pointer-events:none}
+#ancestry-corner-nav a{pointer-events:auto;display:flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:4px;background:var(--color_brand,#6a7a7a);color:#fff;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.22);opacity:.92;transition:opacity .2s,filter .2s,transform .15s}
+#ancestry-corner-nav a:hover,#ancestry-corner-nav a:focus-visible{opacity:1;filter:brightness(1.08)}
+#ancestry-corner-nav a:focus-visible{outline:2px solid #f8f5f2;outline-offset:2px}
+body:has(.back-to-top) #ancestry-corner-nav{bottom:80px}
+@media (min-width:568px){#ancestry-corner-nav{right:30px;bottom:30px}body:has(.back-to-top) #ancestry-corner-nav{bottom:90px}}
+@media (min-width:1025px){#ancestry-corner-nav{right:40px;bottom:40px}body:has(.back-to-top) #ancestry-corner-nav{bottom:100px}}
+@media print{#ancestry-corner-nav{display:none!important}}</style>
+  <a href="/tree/" title="Tree" aria-label="Tree"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 8h-.2A1 1 0 0 1 8 6.3L12 2l4 4.3a1 1 0 0 1-.8 1.7H15l3 4.3a1 1 0 0 1-.7 1.7H17Z"/><path d="M12 22v-8"/></svg></a>
+  <a href="/" title="Home" aria-label="Home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></a>
+</nav>
+<!-- /ancestry-corner-nav -->
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "833d1aca717d4b46b128b7ee3c1f7aa6"}'></script><!-- End Cloudflare Web Analytics --></body>
+</html>
