@@ -74,10 +74,9 @@
         </div>
       </div>
       <div class="generation" id="center-parents">
-        <div class="label">Parents &amp; Grandparents</div>
+        <div class="label">Grandparents</div>
         <div class="person" id="husband"><a href="/riley/michael-henry-riley/">Michael Henry Riley (1960)</a></div>
         <div class="person" id="wife"><a href="/riley/maria-a-barbalias/">Maria A Barbalias (1962)</a></div>
-        <div class="person" id="child-1"><a href="/riley/anthony-james-riley/">Anthony James Riley (1988)</a></div>
       </div>
       <div class="branch" id="r-branch">
         <div class="generation" id="r-ggp">
@@ -93,15 +92,12 @@
   </div>
 
   <script>
-    const pairs=[['l-gggp-1','l-gggp-2','l-ggp-1','right','left'],['l-gggp-3','l-gggp-4','l-ggp-2','right','left'],['l-ggp-1','l-ggp-2','husband','right','left'],['r-gggp-1','r-gggp-2','r-ggp-1','left','right'],['r-gggp-3','r-gggp-4','r-ggp-2','left','right'],['r-ggp-1','r-ggp-2','wife','left','right',0.72]];const kids=['child-1'];
+    const pairs=[['l-gggp-1','l-gggp-2','l-ggp-1','right','left'],['l-gggp-3','l-gggp-4','l-ggp-2','right','left'],['l-ggp-1','l-ggp-2','husband','right','left'],['r-gggp-1','r-gggp-2','r-ggp-1','left','right'],['r-gggp-3','r-gggp-4','r-ggp-2','left','right'],['r-ggp-1','r-ggp-2','wife','left','right']];
     function getAnchor(svgEl,el,side,fy){const r=el.getBoundingClientRect();const s=svgEl.getBoundingClientRect();const x=side==='right'?r.right-s.left:side==='left'?r.left-s.left:(r.left+r.width/2)-s.left;const y=(r.top+r.height*(fy==null?0.5:fy))-s.top;return{x,y}};
     function wire(svgEl,d,arrow){const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);p.setAttribute('class','wire');if(arrow)p.setAttribute('marker-end','url(#arrow)');svgEl.appendChild(p)}
     function dot(svgEl,x,y){const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',4);c.setAttribute('class','junction');svgEl.appendChild(c)}
     function drawAll(){const svgEl=document.getElementById('wires-1');const box=svgEl.getBoundingClientRect();svgEl.setAttribute('viewBox',`0 0 ${box.width} ${box.height}`);Array.from(svgEl.querySelectorAll('path,circle')).forEach(n=>n.remove());
-      pairs.forEach(([p1,p2,child,ps,cs,fy])=>{const a1=getAnchor(svgEl,document.getElementById(p1),ps);const a2=getAnchor(svgEl,document.getElementById(p2),ps);const c=getAnchor(svgEl,document.getElementById(child),cs,fy);const mx=(a1.x+a2.x)/2,my=(a1.y+a2.y)/2;wire(svgEl,`M ${a1.x} ${a1.y} L ${mx} ${my}`);wire(svgEl,`M ${a2.x} ${a2.y} L ${mx} ${my}`);dot(svgEl,mx,my);wire(svgEl,`M ${mx} ${my} L ${c.x} ${c.y}`,true)});
-      const h=getAnchor(svgEl,document.getElementById('husband'),'right',0.5);const w=getAnchor(svgEl,document.getElementById('wife'),'right',0.22);const ox=Math.max(h.x,w.x)+14;const mx=ox,my=(h.y+w.y)/2;
-      wire(svgEl,`M ${h.x} ${h.y} L ${mx} ${my}`);wire(svgEl,`M ${w.x} ${w.y} L ${mx} ${my}`);dot(svgEl,mx,my);
-      kids.forEach(k=>{const c=getAnchor(svgEl,document.getElementById(k),'right');wire(svgEl,`M ${mx} ${my} L ${c.x} ${c.y}`,true)})}
+      pairs.forEach(([p1,p2,child,ps,cs,fy])=>{const a1=getAnchor(svgEl,document.getElementById(p1),ps);const a2=getAnchor(svgEl,document.getElementById(p2),ps);const c=getAnchor(svgEl,document.getElementById(child),cs,fy);const mx=(a1.x+a2.x)/2,my=(a1.y+a2.y)/2;wire(svgEl,`M ${a1.x} ${a1.y} L ${mx} ${my}`);wire(svgEl,`M ${a2.x} ${a2.y} L ${mx} ${my}`);dot(svgEl,mx,my);wire(svgEl,`M ${mx} ${my} L ${c.x} ${c.y}`,true)});}
     window.addEventListener('load',()=>{document.getElementById('print-btn').addEventListener('click',()=>{drawAll();window.print()});drawAll()});window.addEventListener('resize',()=>requestAnimationFrame(drawAll));window.addEventListener('beforeprint',drawAll);window.addEventListener('afterprint',drawAll);const mq=window.matchMedia('print');(mq.addEventListener?mq.addEventListener('change',drawAll):mq.addListener(drawAll));
   </script>
 <!-- ancestry-corner-nav -->
