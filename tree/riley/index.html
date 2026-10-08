@@ -47,7 +47,7 @@
     @media(max-width:860px){.tree{flex-direction:column;align-items:stretch}.branch{flex-direction:column}.generation{min-width:auto}.toolbar{flex-wrap:wrap}}
     @media print{body{background:#fff;color:#000}.toolbar{display:none!important}.person{background:#fff;border-color:#bbb;box-shadow:none}.wire{stroke:#888}.junction{fill:#888}.divider{margin:18px auto}}
   
-    @media print{@page{size:landscape;margin:10mm}.wrap{margin:0 auto}}
+    @media print{@page{size:landscape;margin:10mm}.wrap{margin:0 auto;padding:0}header{margin-bottom:6px}.tree{flex-direction:row!important;align-items:center!important;gap:22px!important}.branch{flex-direction:row!important;gap:18px!important;margin-top:30px!important}.generation{min-width:0!important;width:172px;gap:9px!important}#l-ggp,#r-ggp{margin-top:40px!important}.person{padding:7px 8px;font-size:12px;border-radius:10px}.label{font-size:10.5px}}
   </style>
 </head>
 <body>
@@ -102,7 +102,7 @@
       const h=getAnchor(svgEl,document.getElementById('husband'),'right',0.5);const w=getAnchor(svgEl,document.getElementById('wife'),'right',0.22);const ox=Math.max(h.x,w.x)+14;const mx=ox,my=(h.y+w.y)/2;
       wire(svgEl,`M ${h.x} ${h.y} L ${mx} ${my}`);wire(svgEl,`M ${w.x} ${w.y} L ${mx} ${my}`);dot(svgEl,mx,my);
       kids.forEach(k=>{const c=getAnchor(svgEl,document.getElementById(k),'right');wire(svgEl,`M ${mx} ${my} L ${c.x} ${c.y}`,true)})}
-    window.addEventListener('load',()=>{document.getElementById('print-btn').addEventListener('click',()=>{drawAll();window.print()});drawAll()});window.addEventListener('resize',()=>requestAnimationFrame(drawAll));window.addEventListener('beforeprint',drawAll);window.addEventListener('afterprint',drawAll);
+    window.addEventListener('load',()=>{document.getElementById('print-btn').addEventListener('click',()=>{drawAll();window.print()});drawAll()});window.addEventListener('resize',()=>requestAnimationFrame(drawAll));window.addEventListener('beforeprint',drawAll);window.addEventListener('afterprint',drawAll);const mq=window.matchMedia('print');(mq.addEventListener?mq.addEventListener('change',drawAll):mq.addListener(drawAll));
   </script>
 <!-- ancestry-corner-nav -->
 <nav id="ancestry-corner-nav" aria-label="Site shortcuts">
