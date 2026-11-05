@@ -218,10 +218,21 @@
   </style>
   <style>#mobile_table{display:none}@media screen and (max-width:1040px){#desktop_table{display:none}#mobile_table{display:block}}.section-e86c28c8-4452-4e90-b812-6b3dc6a382bb{padding-top:0;padding-bottom:0}.space__block{font-size:1px}@media(min-width:1921px){.template .space__block{font-size:1.2px}}@media(max-width:1366px){.template .space__block{font-size:.5px}}@media(max-width:1024px){.template .space__block{font-size:.5px}}@media(max-width:767px){.template .space__block{font-size:.3px}}@media screen and (max-width:2560px){.section-e86c28c8-4452-4e90-b812-6b3dc6a382bb{padding-top:0;padding-bottom:0}}@media screen and (max-width:1920px){.section-e86c28c8-4452-4e90-b812-6b3dc6a382bb{padding-top:0;padding-bottom:0}}@media screen and (max-width:1366px){.section-e86c28c8-4452-4e90-b812-6b3dc6a382bb{padding-top:0;padding-bottom:0}}@media screen and (max-width:1024px){.section-e86c28c8-4452-4e90-b812-6b3dc6a382bb{padding-top:0;padding-bottom:0}}@media screen and (max-width:767px){.section-e86c28c8-4452-4e90-b812-6b3dc6a382bb{padding-top:0;padding-bottom:0}}</style>
 <style id="pentimenti-white-links">
-/* Body text links: underlined white. Corner nav, back-to-top, and image-only links kept undecorated. */
+/* Body text links: one white underline. Suppress edit.site leaf underlines (_decoration-underline / gradient / border) so they do not stack. */
 a{color:#fff!important;text-decoration:underline!important}
 a:link,a:visited,a:hover,a:active,a:focus{color:#fff!important;text-decoration:underline!important}
+a .slate__leaf,a .slate__leaf._decoration-underline,.slate__link .slate__leaf,.slate__link .slate__leaf._decoration-underline{
+  color:#fff!important;
+  text-decoration:none!important;
+  -webkit-text-decoration:none!important;
+  border-bottom:none!important;
+  border-bottom-width:0!important;
+  border-bottom-color:transparent!important;
+  background:none!important;
+  background-image:none!important;
+}
 #ancestry-corner-nav a,#ancestry-corner-nav a:link,#ancestry-corner-nav a:visited,#ancestry-corner-nav a:hover,#ancestry-corner-nav a:active,#ancestry-corner-nav a:focus{color:#fff!important;text-decoration:none!important}
+#ancestry-corner-nav a .slate__leaf{text-decoration:none!important;background:none!important;border-bottom:none!important}
 .back-to-top,.back-to-top a,a.back-to-top,.grid-component--back_to_top a{text-decoration:none!important}
 a:has(img),a:has(picture),a:has(.picture),a:has(.img__container-one),.grid-component--image a,.grid-component--image a:link,.grid-component--image a:visited,.grid-component--image a:hover{text-decoration:none!important}
 </style>
